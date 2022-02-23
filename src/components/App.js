@@ -12,7 +12,9 @@ import 'sanitize.css/typography.css';
 import './app.scss';
 import Paragraph from './Paragraph';
 import List from './List';
-import { list } from './ListAboutAgency';
+import { list } from '../data/ListAboutAgency';
+import PortfolioPhotos from './PortfolioPhotos';
+import { portfolioPhotos } from '../data/PortfolioPhotos';
 
 function App() {
   return (
@@ -56,6 +58,9 @@ function App() {
               />
             </picture>
           </div>
+        </section>
+        <section className="portfolio">
+          <PortfolioPhotos photos={portfolioPhotos}></PortfolioPhotos>
         </section>
       </main>
     </>

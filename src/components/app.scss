@@ -1,21 +1,23 @@
 :root {
     --main-color: #a5c3cb;
     --second-color:#d7dede;
+    --light-gray:#eaf1f1;
     --black: #000;
     --gray: #7a7a7a;
     --white: #fff;
     --transition: all 0.3s linear;
 }
 
-.h2 {
-    text-transform: uppercase;
-    color: var(--black);
-    font-weight: bold;
-    font-size: 2rem;
-    margin-top: 0.5rem;
-}
 section {
     padding: 2rem;
+
+    h2 {
+        text-transform: uppercase;
+        color: var(--black);
+        font-weight: bold;
+        font-size: 2rem;
+        margin-top: 0.5rem;
+    }
 
     &.aboutAgency {
         display: flex;
@@ -46,10 +48,10 @@ section {
 
 @media screen and (min-width:992px) {
     section {
-        padding: 2rem;
 
         &.aboutAgency {
             flex-direction: row;
+            padding: 2rem 4rem;
 
             .div__txt {
                 width: 70%;
