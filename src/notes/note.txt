@@ -1,0 +1,14 @@
+items.map(
+    item => {
+        return (<ListItem>...</ListItem>)
+    }
+
+    item => (
+        <ListItem>...</ListItem>
+    )
+
+    // () skrót od return 
+
+)
+
+srcSet
