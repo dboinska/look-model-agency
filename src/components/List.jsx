@@ -22,7 +22,7 @@ const StyledList = styled.ul`
 const ListItem = styled.li`
   list-style-type: none;
   display: block;
-  margin: 1rem;
+  margin: 0.8rem;
 
   &::before {
     content: '';

@@ -3,8 +3,9 @@ import styled, { css } from 'styled-components/macro';
 
 import PortfolioPhoto from './PortfolioPhoto';
 import Heading from './Heading';
-import { H2, H3 } from './Headers';
+import { H2 } from './Headers';
 import FilterButton from './FilterButton';
+import Button from './Button';
 
 const PortfolioPhotos = ({ photos }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -47,7 +48,7 @@ const PortfolioPhotos = ({ photos }) => {
       ))}
 
       <PortfolioImg>
-        <H3>Load more works</H3>
+        <Button>Load more works</Button>
       </PortfolioImg>
     </PortfolioImages>
   );

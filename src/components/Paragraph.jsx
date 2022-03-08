@@ -9,8 +9,8 @@ const Paragraph = styled.p`
   }
 
   @media screen and (min-width: 1200px) {
-    margin: 40px 0;
-    line-height: 2.3;
+    margin: 16px 0;
+    line-height: 1.8;
   }
 `;
 
