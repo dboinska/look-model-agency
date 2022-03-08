@@ -1,16 +1,18 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const list = [
   {
-    id: 'key-1',
+    id: uuidv4(),
     label: 'Aliquam erat volutpat. Nullam libero ex, rhoncus ut lacus at.',
   },
   {
-    id: 'key-2',
+    id: uuidv4(),
     label: 'Mauris luctus magna risus, nec lobortis eros fermentum.',
   },
   {
-    id: 'key-3',
+    id: uuidv4(),
     label: 'Quisque aliquam arcu diam. Duis.',
   },
-  { id: 'key-4', label: 'Sed ut pulvinar tortor, at pellentesque ligula.' },
-  { id: 'key-5', label: 'Nullam vehicula quam justo.' },
+  { id: uuidv4(), label: 'Sed ut pulvinar tortor, at pellentesque ligula.' },
+  { id: uuidv4(), label: 'Nullam vehicula quam justo.' },
 ];

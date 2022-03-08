@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import './heading.scss';
+import styled, { css } from 'styled-components/macro';
+
 const AVAILABLE_POSITIONS = ['left', 'right', 'center'];
 const Heading = ({
   children,
@@ -13,11 +14,48 @@ const Heading = ({
     'heading--bottomLine': showBottomLine,
   });
   return (
-    <div className={headingStyle}>
+    <StyledHeading className={headingStyle}>
       <span className="headingSection">{heading}</span>
       {children}
-    </div>
+    </StyledHeading>
   );
 };
+
+const line = css`
+  content: '';
+  height: 1px;
+  background: var(--gray);
+  flex: 0.9 1 auto;
+`;
+
+const StyledHeading = styled.div`
+  .headingSection {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &::after {
+      ${line}
+    }
+
+    .heading--right & {
+      &::before {
+        ${line}
+      }
+      &::after {
+        display: none;
+      }
+    }
+
+    .heading--center & {
+      &::before {
+        ${line}
+      }
+    }
+  }
+`;
 
 export default Heading;
