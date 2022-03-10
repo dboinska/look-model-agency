@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-
+import styled, { css } from 'styled-components/macro';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import heroPhoto from '../photos/heroPhoto.png';
@@ -11,14 +11,17 @@ import List from './List';
 import PortfolioPhotos from './PortfolioPhotos';
 import { H2, H2WithoutMargin, H3 } from './Headers';
 import { SmallButton } from './Button';
+import Testimonials from './TestimonialsCarousel';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
 import models2BigSize from '../photos/models2BigSize.jpg';
 
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
+import { quotes } from '../data/quotes';
 
-import styled, { css } from 'styled-components/macro';
+import { VscQuote } from 'react-icons/vsc';
+
 const HomePage = () => {
   return (
     <>
@@ -87,6 +90,15 @@ const HomePage = () => {
             </picture>
           </div>
         </FeatureSection>
+        <ColumnSection>
+          <div className="div__center">
+            <VscQuoteStyled />
+            <Heading heading="About us" headingPosition="center">
+              <H2>What People say</H2>
+            </Heading>
+            <Testimonials quotes={quotes} />
+          </div>
+        </ColumnSection>
       </main>
     </>
   );
@@ -96,16 +108,31 @@ const section = css`
   padding: 2rem;
 `;
 
+const VscQuoteStyled = styled(VscQuote)`
+  font-size: 48px;
+`;
+
 const FeatureParagraph = styled(Paragraph)`
   margin: 32px 0;
+`;
+
+const ColumnSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  ${section}
+  text-align: center;
+  background-color: var(--main-color);
+  opacity: 0.8;
+
+  .div__center {
+    width: 60%;
+    margin: 0 auto;
+  }
 `;
 
 const FeatureSection = styled.section`
   display: flex;
   flex-direction: column;
-
-  /* max-height: 60vh; */
-  /* min-height: 564px; */
   ${section}
 
   .div__img {
@@ -115,12 +142,10 @@ const FeatureSection = styled.section`
   picture {
     width: 300px;
     margin-top: 20px;
-    /* height: 500px; */
 
     img {
       object-fit: contain;
       width: 100%;
-      /* height: 100%; */
     }
   }
 
