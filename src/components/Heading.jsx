@@ -40,20 +40,20 @@ const StyledHeading = styled.div`
     &::after {
       ${line}
     }
+  }
 
-    .heading--right & {
-      &::before {
-        ${line}
-      }
-      &::after {
-        display: none;
-      }
+  &.heading--right {
+    .headingSection:before {
+      ${line}
     }
+    .headingSection:after {
+      display: none;
+    }
+  }
 
-    .heading--center & {
-      &::before {
-        ${line}
-      }
+  &.heading--center {
+    .headingSection:before {
+      ${line}
     }
   }
 `;

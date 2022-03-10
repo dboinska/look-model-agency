@@ -1,15 +1,3 @@
-// import '../scss/link.scss';
-
-// const Link = ({ children, href }) => {
-//   return (
-//     <a className="link" href={href}>
-//       {children}
-//     </a>
-//   );
-// };
-
-// export default Link;
-
 import styled from 'styled-components/macro';
 
 const Link = styled.a`
@@ -20,6 +8,7 @@ const Link = styled.a`
   font-size: 1rem;
   text-decoration: none;
   transform: var(--transition);
+  transition: all 0.3s ease;
 
   &:hover {
     background-color: var(--second-color);
