@@ -24,13 +24,9 @@ const SETTINGS = {
   slidesToScroll: 3,
   initialSlide: 0,
   appendDots: dots => (
-    <div
-      style={{
-        margin: '-1rem',
-      }}
-    >
-      <ul style={{ margin: '0px' }}> {dots} </ul>
-    </div>
+    <Dots>
+      <ul> {dots} </ul>
+    </Dots>
   ),
   customPaging: i => <Pagination>{i + 1}</Pagination>,
   autoplay: true,
@@ -54,6 +50,13 @@ const SETTINGS = {
     },
   ],
 };
+
+const Dots = styled.div`
+  margin: -1rem;
+  ul {
+    margin: 0;
+  }
+`;
 
 const Pagination = styled.div`
   font-size: 24px;
