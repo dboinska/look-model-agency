@@ -72,7 +72,7 @@ const FloatMenu = styled.div`
   width: 100%;
   top: 0;
   z-index: 999;
-  border-bottom: 1px solid var(--second-color);
+  /* border-bottom: 1px solid var(--second-color); */
 
   @media screen and (min-width: 1200px) {
     ${links_wrapper}
@@ -82,7 +82,7 @@ const FloatMenu = styled.div`
 const NavHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 120px;
+  height: 100px;
   padding: 0 20px;
 
   .nav-toggle {
@@ -130,7 +130,6 @@ const LinksContainer = styled.div`
     }
     li {
       list-style-type: none;
-      margin: 20px auto;
     }
   }
 

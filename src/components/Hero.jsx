@@ -10,8 +10,6 @@ const Hero = ({
   link,
   ...rest
 }) => {
-  //const cls = `section ${className}`
-
   return (
     <HeroSection className="main" {...rest}>
       <div className="main__mainText">
@@ -40,7 +38,6 @@ const HeroSection = styled.div`
     text-align: center;
     text-transform: uppercase;
     padding: 580px 20px 20px 20px;
-    // overflow: hidden;
     min-height: 100vh;
   }
 
