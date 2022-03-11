@@ -12,7 +12,7 @@ export const SingleQuote = ({ quote }) => {
         </blockquote>
         <figcaption>
           <span>{quote.author}</span>
-          {quote.employ} of {quote.company}
+          {quote.employee} of {quote.company}
         </figcaption>
       </StyledQuote>
     </div>
@@ -30,7 +30,7 @@ const Quote = ({ quotes }) => {
         </blockquote>
         <figcaption>
           <span>{quote.author}</span>
-          {quote.employ} of {quote.company}
+          {quote.employee} of {quote.company}
         </figcaption>
       </StyledQuote>
     </div>

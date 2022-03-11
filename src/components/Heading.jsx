@@ -53,7 +53,7 @@ const StyledHeading = styled.div`
 
   &.heading--center {
     .headingSection:before {
-      ${line}
+      ${line};
     }
   }
 `;

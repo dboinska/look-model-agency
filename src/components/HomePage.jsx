@@ -12,6 +12,7 @@ import PortfolioPhotos from './PortfolioPhotos';
 import { H2, H2WithoutMargin, H3 } from './Headers';
 import { SmallButton } from './Button';
 import Testimonials from './TestimonialsCarousel';
+import TeamCarousel from './TeamCarousel';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
 import models2BigSize from '../photos/models2BigSize.jpg';
@@ -19,6 +20,7 @@ import models2BigSize from '../photos/models2BigSize.jpg';
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
 import { quotes } from '../data/quotes';
+import { team } from '../data/team';
 
 import { VscQuote } from 'react-icons/vsc';
 
@@ -90,7 +92,7 @@ const HomePage = () => {
             </picture>
           </div>
         </FeatureSection>
-        <ColumnSection>
+        <ColumnSection className="mainColor">
           <div className="div__center">
             <VscQuoteStyled />
             <Heading heading="About us" headingPosition="center">
@@ -99,6 +101,15 @@ const HomePage = () => {
             <Testimonials quotes={quotes} />
           </div>
         </ColumnSection>
+        <ColumnSection>
+          <div className="div__center">
+            <Heading heading="Team" headingPosition="center">
+              <H2WithoutMargin>Super models</H2WithoutMargin>
+            </Heading>
+          </div>
+          <TeamCarousel team={team} />
+        </ColumnSection>
+        <ColumnSection></ColumnSection>
       </main>
     </>
   );
@@ -121,8 +132,10 @@ const ColumnSection = styled.section`
   flex-direction: column;
   ${section}
   text-align: center;
-  background-color: var(--main-color);
-  opacity: 0.8;
+
+  &.mainColor {
+    background-color: var(--main-color);
+  }
 
   .div__center {
     width: 60%;
@@ -134,6 +147,10 @@ const FeatureSection = styled.section`
   display: flex;
   flex-direction: column;
   ${section}
+
+  @media screen and (min-width: 992px) {
+    margin: 40px 0;
+  }
 
   .div__img {
     display: flex;
