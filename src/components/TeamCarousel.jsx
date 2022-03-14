@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const TeamContainer = styled(Slider)`
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -52,7 +52,7 @@ const SETTINGS = {
 };
 
 const Dots = styled.div`
-  margin: -1rem;
+  /* margin: -1rem; */
   ul {
     margin: 0;
   }

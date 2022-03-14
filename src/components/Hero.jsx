@@ -103,7 +103,7 @@ const Paragraph = styled.p`
   font-size: 1rem;
 
   @media screen and (min-width: 700px) {
-    margin: 0 50px 20px 50px;
+    margin: 50px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -116,9 +116,9 @@ const HeroPhoto = styled.figure`
   display: flex;
   justify-content: center;
   & img {
-    height: 40%;
+    height: 30%;
     display: flex;
-    transform: translateY(50px);
+    transform: translateY(50%);
   }
 
   @media screen and (min-width: 1200px) {
@@ -129,6 +129,8 @@ const HeroPhoto = styled.figure`
       width: auto;
       display: flex;
       margin: 0 auto;
+
+      transform: translateY(50px);
     }
   }
 `;

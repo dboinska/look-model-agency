@@ -13,9 +13,11 @@ import { H2, H2WithoutMargin, H3 } from './Headers';
 import { SmallButton } from './Button';
 import Testimonials from './TestimonialsCarousel';
 import TeamCarousel from './TeamCarousel';
+import Link from './Link';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
 import models2BigSize from '../photos/models2BigSize.jpg';
+import fashion from '../photos/FASHION.png';
 
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
@@ -92,7 +94,7 @@ const HomePage = () => {
             </picture>
           </div>
         </FeatureSection>
-        <ColumnSection className="mainColor">
+        <ColumnSection backgroundColor="var(--main-color)">
           <div className="div__center">
             <VscQuoteStyled />
             <Heading heading="About us" headingPosition="center">
@@ -109,7 +111,21 @@ const HomePage = () => {
           </div>
           <TeamCarousel team={team} />
         </ColumnSection>
-        <ColumnSection></ColumnSection>
+        <ColumnSection
+          backgroundColor="var(--main-color)"
+          justifyContent="space-evenly"
+          backgroundImage="url('../photos/FASHION2.png')"
+        >
+          <div>
+            <H2WithoutMargin>
+              We have best of models from the fashion industry
+            </H2WithoutMargin>
+            <H3>who involved in the fashion week around the world</H3>
+          </div>
+          <div>
+            <Link>Apply now</Link>
+          </div>
+        </ColumnSection>
       </main>
     </>
   );
@@ -132,14 +148,19 @@ const ColumnSection = styled.section`
   flex-direction: column;
   ${section}
   text-align: center;
-
-  &.mainColor {
-    background-color: var(--main-color);
-  }
+  background-color: ${props => props.backgroundColor || 'var(--white)'};
+  justify-content: ${props => props.justifyContent || 'auto'};
+  background-image: ${props => props.backgroundImage || 'none'};
+  min-height: 380px;
+  background-position: center;
+  background-repeat: repeat;
 
   .div__center {
-    width: 60%;
-    margin: 0 auto;
+    @media screen and (min-width: 992px) {
+      margin: 0 auto;
+      width: 60%;
+      min-width: 350px;
+    }
   }
 `;
 

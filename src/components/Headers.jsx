@@ -19,10 +19,10 @@ export const H2 = styled.h2`
 export const H2WithoutMargin = styled(H2)`
   margin: 0;
 `;
-export const H3 = styled.h2`
+export const H3 = styled.h3`
   ${commonStyle}
   color: var(--gray);
-  font-size: 1.6rem;
-  margin: 0;
+  margin: 0 0 1rem 0;
   letter-spacing: 0.2em;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
 `;
