@@ -26,3 +26,9 @@ export const H3 = styled.h3`
   letter-spacing: 0.2em;
   font-size: clamp(1.25rem, 2vw, 1.6rem);
 `;
+
+export const H4 = styled.h4`
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+`;

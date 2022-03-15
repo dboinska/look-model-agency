@@ -14,15 +14,19 @@ import { SmallButton } from './Button';
 import Testimonials from './TestimonialsCarousel';
 import TeamCarousel from './TeamCarousel';
 import Link from './Link';
+import FeatureSection from './FeatureSection';
+import Blog from './Blog';
+
+import Logo from './Logo';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
 import models2BigSize from '../photos/models2BigSize.jpg';
-import fashion from '../photos/FASHION.png';
 
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
 import { quotes } from '../data/quotes';
 import { team } from '../data/team';
+import { blog } from '../data/blog';
 
 import { VscQuote } from 'react-icons/vsc';
 
@@ -126,6 +130,7 @@ const HomePage = () => {
             <Link>Apply now</Link>
           </div>
         </ColumnSection>
+        <Blog posts={blog} />
       </main>
     </>
   );
@@ -160,56 +165,6 @@ const ColumnSection = styled.section`
       margin: 0 auto;
       width: 60%;
       min-width: 350px;
-    }
-  }
-`;
-
-const FeatureSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  ${section}
-
-  @media screen and (min-width: 992px) {
-    margin: 40px 0;
-  }
-
-  .div__img {
-    display: flex;
-    justify-content: center;
-  }
-  picture {
-    width: 300px;
-    margin-top: 20px;
-
-    img {
-      object-fit: contain;
-      width: 100%;
-    }
-  }
-
-  @media screen and (min-width: 992px) {
-    flex-direction: row;
-    padding: 2rem 4rem;
-
-    picture {
-      margin-top: 0;
-    }
-
-    .div__txt {
-      width: 60%;
-      padding-right: 2rem;
-    }
-
-    .div__img {
-      width: 40%;
-    }
-
-    .onBig--order1 {
-      order: 1;
-    }
-
-    .onBig--order2 {
-      order: 2;
     }
   }
 `;

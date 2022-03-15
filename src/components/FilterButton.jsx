@@ -22,7 +22,8 @@ const FilterButton = styled.button`
   font-size: 1.2rem;
   border: none;
   background-color: transparent;
-  padding: 0 1.6rem;
+  padding: ${props => props.padding || '0 1.6rem'};
+  text-align: ${props => props.textAlign || 'center'};
   transition: all 0.3s ease;
 
   &:before {

@@ -7,8 +7,13 @@ export const ModelStyled = styled.div`
 
   img {
     object-fit: cover;
-    width: 100%;
+    max-width: 250px;
     height: 100%;
+
+    @media screen and (min-width: 1200px) {
+      max-width: none;
+      width: 100%;
+    }
   }
 `;
 
