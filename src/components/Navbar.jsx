@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import { links } from '../data/routes';
 import { social } from '../data/socialmediaLinks';
 import logo from '../photos/logo.png';
-
+import Logo from './Logo';
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
@@ -23,7 +23,8 @@ const Navbar = () => {
     <nav>
       <FloatMenu>
         <NavHeader>
-          <img src={logo} alt="logo" />
+          <Logo />
+          {/* <img src={logo} alt="logo" /> */}
           <button
             className="nav-toggle"
             onClick={() => setShowLinks(!showLinks)}

@@ -3,7 +3,7 @@ import { FaBehance, FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 export const social = [
   {
     id: uuidv4(),
-    url: 'https://www.twitter.com',
+    url: 'https://www.facebook.com',
     icon: <FaFacebook />,
   },
   {
@@ -13,12 +13,12 @@ export const social = [
   },
   {
     id: uuidv4(),
-    url: 'https://www.twitter.com',
+    url: 'https://www.linkedin.com',
     icon: <FaLinkedin />,
   },
   {
     id: uuidv4(),
-    url: 'https://www.twitter.com',
+    url: 'https://www.behance.com',
     icon: <FaBehance />,
   },
 ];

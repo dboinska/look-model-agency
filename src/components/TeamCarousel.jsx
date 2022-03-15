@@ -59,11 +59,9 @@ const Dots = styled.div`
 `;
 
 const Pagination = styled.div`
-  font-size: 24px;
+  font-size: clamp(0.9rem, 2vw, 1.6rem);
   color: var(--gray);
-  background-color: #ddd;
-  border-radius: 10px;
-  margin: 1rem;
+  /* margin: 1rem; */
 
   .slick-active & {
     color: var(--black);

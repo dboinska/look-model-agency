@@ -21,6 +21,7 @@ export const GlobalStyles = createGlobalStyle`
     --main-color: #a5c3cb;
     --second-color:#d7dede;
     --light-gray:#eaf1f1;
+    --dark-gray: #333;
     --black: #000;
     --gray: #7a7a7a;
     --white: #fff;
@@ -38,7 +39,9 @@ export const GlobalStyles = createGlobalStyle`
     code {
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
             monospace;
-}
+    }
+
+
 `;
 
 export default App;
