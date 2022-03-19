@@ -3,10 +3,13 @@ import styled from 'styled-components/macro';
 const FeatureSection = styled.section`
   display: flex;
   flex-direction: ${props => props.flexDirection || 'column'};
-  padding: 2rem;
+  padding: ${props => props.padding || '2rem'};
   flex-wrap: ${props => props.flexWrap || 'nowrap'};
   justify-content: space-evenly;
-  background-color: ${props => props.backgroundColor || 'transparent'};
+  color: ${props =>
+    props.variant === 'dark' ? 'var(--medium-gray)' : 'var(--black)'};
+  background-color: ${props =>
+    props.variant === 'dark' ? 'var(--dark-gray)' : 'transparent'};
 
   .div__img {
     display: flex;
@@ -22,12 +25,18 @@ const FeatureSection = styled.section`
     }
   }
 
+  @media screen and (min-width: 769px) {
+    background-image: ${props => props.backgroundImage || 'none'};
+    background-position: right;
+    background-size: contain;
+  }
+
   @media screen and (min-width: 992px) {
     flex-direction: row;
     flex-wrap: nowrap;
     padding: ${props => props.padding || '2rem 4rem'};
     margin: ${props => props.margin || '40px 0'};
-    justify-content: space-between;
+    /* justify-content: space-between; */
 
     picture {
       margin-top: 0;

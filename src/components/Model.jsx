@@ -2,12 +2,14 @@ import styled from 'styled-components/macro';
 
 export const ModelStyled = styled.div`
   height: 400px;
-  width: 300px;
+  /* width: 300px; */
   padding-top: 2rem;
+  padding-right: 0.5rem;
+  margin: 0 auto;
 
   img {
     object-fit: cover;
-    max-width: 250px;
+    width: 100%;
     height: 100%;
 
     @media screen and (min-width: 1200px) {
@@ -26,6 +28,8 @@ export const ModelData = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 1rem;
+  margin-bottom: 2rem;
+  /* margin: 0 auto; */
 
   h4 {
     margin: 0;

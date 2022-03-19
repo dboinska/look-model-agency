@@ -1,14 +1,16 @@
 import styled from 'styled-components/macro';
 
-const Logo = () => (
-  <LogoStyled>
+const Logo = ({ variant }) => (
+  <LogoStyled variant={variant}>
     <h2>LOOK</h2>
     <span>Model agency</span>
   </LogoStyled>
 );
 
 const LogoStyled = styled.div`
-  color: var(--black);
+  color: ${props =>
+    props.variant === 'light' ? 'var(--white)' : 'var(--black)'};
+  height: 86px;
 
   h2 {
     text-transform: uppercase;

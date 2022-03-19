@@ -32,6 +32,7 @@ const HeroSection = styled.div`
   justify-content: space-around;
   padding-top: 120px;
   height: 100vh;
+  min-height: 744px;
   overflow: hidden;
 
   & .main__mainText {
