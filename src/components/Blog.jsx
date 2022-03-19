@@ -65,7 +65,7 @@ const Blog = ({ posts }) => {
         }) => (
           <DivWrapBlog key={id}>
             <img src={photo} alt={heading} />
-            <div class="div__blogTxt">
+            <div className="div__blogTxt">
               <H3>{category}</H3>
               <H4>{heading}</H4>
               <div className="socialIcons">
@@ -108,20 +108,6 @@ const DivWrapBlog = styled(DivWrap)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-
-  .div__column {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 2rem;
-  }
-
-  .div__top {
-    @media screen and (min-width: 727px) {
-      position: absolute;
-      top: 0;
-    }
   }
 `;
 export default Blog;

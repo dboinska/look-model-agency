@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components/macro';
 import { FaBars } from 'react-icons/fa';
 import { links } from '../data/routes';
 import { social } from '../data/socialmediaLinks';
-import logo from '../photos/logo.png';
 import Logo from './Logo';
+import SocialIcons from './SocialIcons';
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
@@ -144,27 +144,6 @@ const LinksContainer = styled.div`
 
     .links {
       ${links_wrapper}
-    }
-  }
-`;
-
-const SocialIcons = styled.ul`
-  display: none;
-
-  @media screen and (min-width: 1200px) {
-    ${links_wrapper}
-
-    a {
-      margin: 0 8px;
-      color: var(--black);
-    }
-    svg {
-      fill: currentColor;
-      transition: var(--transition);
-
-      &:hover {
-        color: var(--white);
-      }
     }
   }
 `;

@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import styled, { css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import heroPhoto from '../photos/heroPhoto.png';
@@ -16,8 +16,8 @@ import TeamCarousel from './TeamCarousel';
 import Link from './Link';
 import FeatureSection from './FeatureSection';
 import Blog from './Blog';
-
-import Logo from './Logo';
+import Footer from './Footer';
+import ColumnSection from './ColumnSection';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
 import models2BigSize from '../photos/models2BigSize.jpg';
@@ -131,14 +131,15 @@ const HomePage = () => {
           </div>
         </ColumnSection>
         <Blog posts={blog} />
+        <Footer />
       </main>
     </>
   );
 };
 
-const section = css`
-  padding: 2rem;
-`;
+// const section = css`
+//   padding: 2rem;
+// `;
 
 const VscQuoteStyled = styled(VscQuote)`
   font-size: 48px;
@@ -146,27 +147,6 @@ const VscQuoteStyled = styled(VscQuote)`
 
 const FeatureParagraph = styled(Paragraph)`
   margin: 32px 0;
-`;
-
-const ColumnSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  ${section}
-  text-align: center;
-  background-color: ${props => props.backgroundColor || 'var(--white)'};
-  justify-content: ${props => props.justifyContent || 'auto'};
-  background-image: ${props => props.backgroundImage || 'none'};
-  min-height: 380px;
-  background-position: center;
-  background-repeat: repeat;
-
-  .div__center {
-    @media screen and (min-width: 992px) {
-      margin: 0 auto;
-      width: 60%;
-      min-width: 350px;
-    }
-  }
 `;
 
 const Portfolio = styled.section`

@@ -11,6 +11,7 @@ const TeamContainer = styled(Slider)`
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
 
   @media screen and (min-width: 992px) {
     width: 76%;
@@ -29,12 +30,12 @@ const SETTINGS = {
     </Dots>
   ),
   customPaging: i => <Pagination>{i + 1}</Pagination>,
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 4000,
 
   responsive: [
     {
-      breakpoint: 600,
+      breakpoint: 769,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -42,7 +43,7 @@ const SETTINGS = {
       },
     },
     {
-      breakpoint: 480,
+      breakpoint: 600,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
