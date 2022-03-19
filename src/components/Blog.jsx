@@ -82,7 +82,7 @@ const Blog = ({ posts }) => {
 };
 
 const DivWrapBlog = styled(DivWrap)`
-  width: 300px;
+  width: 400px;
   /* width: 200px; */
   height: 500px;
   &:first-of-type {

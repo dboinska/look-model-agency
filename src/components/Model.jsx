@@ -6,6 +6,7 @@ export const ModelStyled = styled.div`
   padding-top: 2rem;
   padding-right: 0.5rem;
   margin: 0 auto;
+  max-width: 300px;
 
   img {
     object-fit: cover;
@@ -28,8 +29,7 @@ export const ModelData = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 1rem;
-  margin-bottom: 2rem;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 
   h4 {
     margin: 0;

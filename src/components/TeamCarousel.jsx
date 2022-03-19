@@ -30,7 +30,7 @@ const SETTINGS = {
     </Dots>
   ),
   customPaging: i => <Pagination>{i + 1}</Pagination>,
-  autoplay: false,
+  autoplay: true,
   autoplaySpeed: 4000,
 
   responsive: [
@@ -54,8 +54,12 @@ const SETTINGS = {
 
 const Dots = styled.div`
   /* margin: -1rem; */
+
+  position: relative;
+  bottom: 0;
+
   ul {
-    margin: 0;
+    padding: 0;
   }
 `;
 
