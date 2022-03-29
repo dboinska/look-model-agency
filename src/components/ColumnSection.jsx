@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 const ColumnSection = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: ${props => props.padding || '2rem'};
   text-align: center;
   color: ${props => props.color || 'var(--black)'};
   background-color: ${props => props.backgroundColor || 'var(--white)'};
