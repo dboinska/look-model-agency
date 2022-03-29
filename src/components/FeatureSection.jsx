@@ -32,10 +32,11 @@ const FeatureSection = styled.section`
   }
 
   @media screen and (min-width: 992px) {
-    flex-direction: row;
+    flex-direction: ${props => props.flexDirection || 'row'};
     flex-wrap: nowrap;
     padding: ${props => props.padding || '2rem 4rem'};
     margin: ${props => props.margin || '40px 0'};
+    margin: 0 auto;
     /* justify-content: space-between; */
 
     picture {

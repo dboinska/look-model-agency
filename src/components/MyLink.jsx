@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
 
-const Link = styled.a`
+const MyLink = styled.a`
   background-color: var(--black);
   text-transform: uppercase;
   font-weight: 500;
@@ -23,4 +23,4 @@ const Link = styled.a`
   }
 `;
 
-export default Link;
+export default MyLink;

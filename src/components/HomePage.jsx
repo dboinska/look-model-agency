@@ -11,9 +11,8 @@ import List from './List';
 import PortfolioPhotos from './PortfolioPhotos';
 import { H2, H2WithoutMargin, H3 } from './Headers';
 import { SmallButton } from './Button';
-import Testimonials from './TestimonialsCarousel';
 import TeamCarousel from './TeamCarousel';
-import Link from './Link';
+import MyLink from './MyLink';
 import FeatureSection from './FeatureSection';
 import Blog from './Blog';
 import Footer from './Footer';
@@ -24,11 +23,12 @@ import models2BigSize from '../photos/models2BigSize.jpg';
 
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
-import { quotes } from '../data/quotes';
 import { team } from '../data/team';
 import { blog } from '../data/blog';
 
-import { VscQuote } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
+
+import TestimonialsPage from './TestimonialsPage';
 
 const HomePage = () => {
   return (
@@ -98,15 +98,7 @@ const HomePage = () => {
             </picture>
           </div>
         </FeatureSection>
-        <ColumnSection backgroundColor="var(--main-color)">
-          <div className="div__center">
-            <VscQuoteStyled />
-            <Heading heading="About us" headingPosition="center">
-              <H2>What People say</H2>
-            </Heading>
-            <Testimonials quotes={quotes} />
-          </div>
-        </ColumnSection>
+        <TestimonialsPage></TestimonialsPage>
         <ColumnSection>
           <div className="div__center">
             <Heading heading="Team" headingPosition="center">
@@ -127,7 +119,9 @@ const HomePage = () => {
             <H3>who involved in the fashion week around the world</H3>
           </div>
           <div>
-            <Link>Apply now</Link>
+            <Link to="/apply">
+              <MyLink>Apply now</MyLink>
+            </Link>
           </div>
         </ColumnSection>
         <Blog posts={blog} />
@@ -136,14 +130,6 @@ const HomePage = () => {
     </>
   );
 };
-
-// const section = css`
-//   padding: 2rem;
-// `;
-
-const VscQuoteStyled = styled(VscQuote)`
-  font-size: 48px;
-`;
 
 const FeatureParagraph = styled(Paragraph)`
   margin: 32px 0;

@@ -1,0 +1,54 @@
+import Navbar from './Navbar';
+import Hero from './Hero';
+import heroPhoto from '../photos/applyModel2.png';
+import Footer from './Footer';
+import FeatureSection from './FeatureSection';
+import Heading from './Heading';
+import { H2 } from './Headers';
+import Paragraph from './Paragraph';
+import List from './List';
+import { ourRequirements } from '../data/ourRequirements';
+import modelB from '../photos/modelB.jpg';
+import modelS from '../photos/modelS.jpg';
+import { FormValidationSchema } from './ApplyForm';
+
+const ApplyPage = () => {
+  return (
+    <>
+      <Navbar />
+      <Hero
+        imageUrl={heroPhoto}
+        subHeading="get to know us &"
+        heading="APPLY NOW"
+        description="If you would like to model with our agency, please fill out the form to contact us. Send us recent photos taken with a cell phone on a neutral background, without makeup or filters. Our agency will contact you."
+        link="\"
+        linkLabel="Read More"
+      ></Hero>
+      <FeatureSection>
+        <div className="div__txt">
+          <Heading heading="requirements">
+            <H2>Become an elite model</H2>
+          </Heading>
+          <Paragraph>
+            We are open for new collaborations. If you meet the following
+            requirements, please submit your application via the form and expect
+            to be contacted.
+          </Paragraph>
+          <List items={ourRequirements}></List>
+          <Paragraph>
+            We reserve the right to contact selected persons.
+          </Paragraph>
+        </div>
+        <div className="div__img">
+          <picture>
+            <source media="(min-width:577px)" srcSet={modelB} />
+            <img src={modelS} alt="model with afro hair" />
+          </picture>
+        </div>
+      </FeatureSection>
+      <FormValidationSchema />
+      <Footer />
+    </>
+  );
+};
+export default ApplyPage;

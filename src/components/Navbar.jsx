@@ -5,6 +5,7 @@ import { links } from '../data/routes';
 import { social } from '../data/socialmediaLinks';
 import Logo from './Logo';
 import SocialIcons from './SocialIcons';
+
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
