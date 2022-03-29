@@ -71,7 +71,7 @@ const Footer = () => {
           </Paragraph>
           {/* <form action="" method="get" name="newsletter"> */}
           <FormNewsletter>
-            <label form="email">Enter your email:</label>
+            <label form="email"> email:</label>
             <div>
               <input type="email" name="email" id="email"></input>
 

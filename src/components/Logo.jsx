@@ -1,16 +1,23 @@
 import styled from 'styled-components/macro';
+import { Routes, Route, Link } from 'react-router-dom';
 
 const Logo = ({ variant }) => (
   <LogoStyled variant={variant}>
-    <h2>LOOK</h2>
-    <span>Model agency</span>
+    <Link to="/">
+      <h2>LOOK</h2>
+      <span>Model agency</span>
+    </Link>
   </LogoStyled>
 );
 
 const LogoStyled = styled.div`
-  color: ${props =>
-    props.variant === 'light' ? 'var(--white)' : 'var(--black)'};
   height: 86px;
+
+  a {
+    text-decoration: none;
+    color: ${props =>
+      props.variant === 'light' ? 'var(--white)' : 'var(--black)'};
+  }
 
   h2 {
     text-transform: uppercase;

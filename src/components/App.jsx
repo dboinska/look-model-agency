@@ -1,5 +1,7 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
+import NotFoundPage from './NotFoundPage';
 import { HelmetProvider } from 'react-helmet-async';
 import { createGlobalStyle } from 'styled-components/macro';
 
@@ -7,11 +9,34 @@ import 'sanitize.css';
 import 'sanitize.css/forms.css';
 import 'sanitize.css/typography.css';
 
+import Navbar from './Navbar';
+import TestimonialsPage from './TestimonialsPage';
+import ApplyPage from './ApplyPage';
+import Footer from './Footer';
+
 function App() {
   return (
     <HelmetProvider>
       <GlobalStyles />
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/testimonials"
+          element={
+            <>
+              <Navbar />
+              <TestimonialsPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<HomePage />} />
+        <Route path="/apply" element={<ApplyPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+        {/* <Route path="/notfound" element={<NotFoundPage />} /> */}
+        {/* <Route path="about" element={<About />} /> */}
+      </Routes>
     </HelmetProvider>
   );
 }
@@ -23,6 +48,7 @@ export const GlobalStyles = createGlobalStyle`
     --light-gray:#eaf1f1;
     --medium-gray:#c6c6c6;
     --dark-gray: #212121;
+    --error-color: #fb0000;
     --black: #000;
     --gray: #7a7a7a;
     --white: #fff;

@@ -1,4 +1,4 @@
-import Link from './Link';
+import MyLink from './MyLink';
 import styled from 'styled-components/macro';
 
 const Hero = ({
@@ -16,7 +16,7 @@ const Hero = ({
         <Subheading>{subHeading}</Subheading>
         <Heading>{heading}</Heading>
         <Paragraph>{description}</Paragraph>
-        <Link href={link}>{linkLabel}</Link>
+        <MyLink href={link}>{linkLabel}</MyLink>
       </div>
       <HeroPhoto>
         <img src={imageUrl} alt=""></img>
