@@ -4,10 +4,7 @@ const SocialIcons = styled.ul`
   display: ${props => props.display || 'none'};
   justify-content: 'left';
   padding: 0;
-
-  li {
-    list-style-type: none;
-  }
+  list-style-type: none;
 
   align-items: center;
   font-size: 1.2rem;
@@ -17,11 +14,13 @@ const SocialIcons = styled.ul`
     color: var(--black);
   }
   svg {
-    fill: currentColor;
+    fill: ${props =>
+      props.variant === 'gray' ? 'var(--gray)' : 'currentColor'};
     transition: var(--transition);
 
     &:hover {
-      color: var(--white);
+      fill: ${props =>
+        props.variant === 'gray' ? 'var(--black)' : 'var(--white)'};
     }
   }
 

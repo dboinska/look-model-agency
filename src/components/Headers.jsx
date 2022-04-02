@@ -9,16 +9,14 @@ export const H2 = styled.h2`
   ${commonStyle}
   color: var(--black);
   font-size: 2rem;
-  margin-top: 0.5rem;
+  margin: ${props => (props.variant === 'marginNone' ? '0' : '0.5rem 0 0 0')};
+  /* margin-top: 0.5rem; */
 
   @media screen and (min-width: 1200px) {
     font-size: 2.4rem;
   }
 `;
 
-export const H2WithoutMargin = styled(H2)`
-  margin: 0;
-`;
 export const H3 = styled.h3`
   ${commonStyle}
   color: var(--gray);
@@ -27,8 +25,8 @@ export const H3 = styled.h3`
   font-size: clamp(1.25rem, 2vw, 1.6rem);
 `;
 
-export const H4 = styled.h4`
-  font-size: 16px;
-  text-transform: uppercase;
-  margin: 0.5rem 0;
-`;
+// export const H4 = styled.h4`
+//   font-size: 16px;
+//   text-transform: uppercase;
+//   margin: 0.5rem 0;
+// `;

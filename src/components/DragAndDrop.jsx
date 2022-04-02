@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 
-const fileTypes = ['JPG', 'PNG', 'GIF'];
-
-function DragDrop() {
+function DragDrop({ fileTypes, maxSize }) {
   const [file, setFile] = useState(null);
   const handleChange = file => {
     setFile(file);
@@ -13,7 +11,7 @@ function DragDrop() {
       handleChange={handleChange}
       name="file"
       types={fileTypes}
-      maxSize="1"
+      maxSize={maxSize}
     />
   );
 }

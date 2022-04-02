@@ -1,23 +1,23 @@
-import styled from 'styled-components/macro';
 import { useState } from 'react';
+import styled from 'styled-components/macro';
+
 import Heading from './Heading';
 import { SmallButton } from './Button';
 import { H2, H3, H4 } from './Headers';
 import FeatureSection from './FeatureSection';
 import FilterButton from './FilterButton';
-import DivWrap from './DivWrap';
+import Container from './Container';
+import SocialIcons from './SocialIcons';
 
 const Blog = ({ posts }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const postCategories = posts.map(post => post.category);
   const categories = Array.from(new Set(postCategories));
   categories.unshift('all');
-  console.log(categories);
   const [filteredPosts, setFilteredPosts] = useState(posts);
 
   const handleSelectCategory = category => {
     setSelectedCategory(category);
-    console.log(category, selectedCategory);
     const selectedPosts =
       category === 'all'
         ? posts
@@ -27,7 +27,7 @@ const Blog = ({ posts }) => {
 
   return (
     <FeatureSection flexDirection="row" flexWrap="wrap">
-      <DivWrap>
+      <Container>
         <div className="div__top">
           <Heading heading="Blog">
             <H2>Last news</H2>
@@ -49,7 +49,7 @@ const Blog = ({ posts }) => {
 
           <SmallButton>Discover more</SmallButton>
         </div>
-      </DivWrap>
+      </Container>
       {filteredPosts.map(
         ({
           id,
@@ -63,25 +63,25 @@ const Blog = ({ posts }) => {
           urlIg,
           iconIg,
         }) => (
-          <DivWrapBlog key={id}>
+          <ContainerBlog key={id}>
             <img src={photo} alt={heading} />
             <div className="div__blogTxt">
-              <H3>{category}</H3>
-              <H4>{heading}</H4>
-              <div className="socialIcons">
+              <span>{category}</span>
+              <H3>{heading}</H3>
+              <SocialIcons variant="gray">
                 <a href={urlFb}>{iconFb}</a>
                 <a href={urlTwitter}>{iconTwitter}</a>
                 <a href={urlIg}>{iconIg}</a>
-              </div>
+              </SocialIcons>
             </div>
-          </DivWrapBlog>
+          </ContainerBlog>
         )
       )}
     </FeatureSection>
   );
 };
 
-const DivWrapBlog = styled(DivWrap)`
+const ContainerBlog = styled(Container)`
   width: 400px;
   /* width: 200px; */
   height: 500px;
@@ -92,16 +92,35 @@ const DivWrapBlog = styled(DivWrap)`
     }
   }
 
+  span {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    color: var(--gray);
+    font-weight: 700;
+  }
+
+  ${H3} {
+    color: var(--black);
+    margin: 0;
+    letter-spacing: 0.1em;
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+
   img {
     object-fit: cover;
     width: 100%;
-    height: 76%;
+    height: 78%;
     position: absolute;
     top: 0;
   }
 
   .div__blogTxt {
-    height: 24%;
+    height: 22%;
     position: absolute;
     bottom: 0;
     width: 100%;

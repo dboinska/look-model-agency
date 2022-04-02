@@ -1,103 +1,50 @@
 import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
 import FeatureSection from './FeatureSection';
 import Heading from './Heading';
 import { H2 } from './Headers';
 import styled from 'styled-components';
-// import Moment from 'react-moment';
 import React, { useState, useRef } from 'react';
 import DragAndDrop from './DragAndDrop';
-
-// import 'moment-timezone';
-
-const phoneRegExp =
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-
-  lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-
-  phoneNumber: Yup.string().matches(phoneRegExp, 'Phone number is not valid'),
-
-  email: Yup.string().email('Invalid email').required('Required'),
-
-  address: Yup.string().required('Required'),
-
-  city: Yup.string().required('Required'),
-
-  postcode: Yup.string().required('Required'),
-
-  // birthDate: Yup.string()
-  //   .required('DOB is Required')
-  //   .test(
-  //     'DOB',
-  //     'Please choose a valid date of birth',
-  //     date => Moment().diff(Moment(date), 'years') >= 18
-  //   ),
-  hairColor: Yup.string().required('Required'),
-
-  eyeColor: Yup.string().required('Required'),
-
-  height: Yup.number().positive().min(167, 'To Little!').required('Required'),
-
-  weight: Yup.number()
-    .positive()
-    .min(50, 'To Little!')
-    .max(80, 'To Much!')
-    .required('Required'),
-  chestWidth: Yup.number().positive().required('Required'),
-
-  waistWidth: Yup.number().positive().required('Required'),
-  hipWidth: Yup.number().positive().required('Required'),
-  shoeSize: Yup.number().positive().required('Required'),
-});
+import { SignUpSchema } from './ValidationForm';
 
 export const FormValidationSchema = () => {
   const [name, setName] = useState('');
-
   const [selectedFile, setSelectedFile] = useState(null);
   const submitForm = () => {};
 
-  const FileUploader = ({
-    onFileSelect,
-    onFileSelectSuccess,
-    onFileSelectError,
-  }) => {
-    const fileInput = useRef(null);
+  // const FileUploader = ({
+  //   onFileSelect,
+  //   onFileSelectSuccess,
+  //   onFileSelectError,
+  // }) => {
+  //   const fileInput = useRef(null);
 
-    const handleFileInput = e => {
-      const file = e.target.files[0];
+  //   const handleFileInput = e => {
+  //     const file = e.target.files[0];
 
-      if (file.size > 1048576)
-        onFileSelectError({ error: 'File size cannot exceed more than 1MB' });
-      else onFileSelectSuccess(file);
-    };
+  //     if (file.size > 1048576)
+  //       onFileSelectError({ error: 'File size cannot exceed more than 1MB' });
+  //     else onFileSelectSuccess(file);
+  //   };
 
-    return (
-      <div className="file-uploader">
-        <input
-          type="file"
-          id="image_uploads"
-          name="image_uploads"
-          accept=".jpg, .jpeg, .png"
-          multiple
-          onChange={handleFileInput}
-        />
+  //   return (
+  //     <div className="file-uploader">
+  //       <input
+  //         type="file"
+  //         id="image_uploads"
+  //         name="image_uploads"
+  //         accept=".jpg, .jpeg, .png"
+  //         multiple
+  //         onChange={handleFileInput}
+  //       />
 
-        <button
-          onClick={e => fileInput.current && fileInput.current.click()}
-          className="btn btn-primary"
-        />
-      </div>
-    );
-  };
+  //       <button
+  //         onClick={e => fileInput.current && fileInput.current.click()}
+  //         className="btn btn-primary"
+  //       />
+  //     </div>
+  //   );
+  // };
 
   return (
     <FeatureSection flexDirection="column">
@@ -124,7 +71,7 @@ export const FormValidationSchema = () => {
             hipWidth: '',
             shoeSize: '',
           }}
-          validationSchema={SignupSchema}
+          validationSchema={SignUpSchema}
           onSubmit={async values => {
             await new Promise(r => setTimeout(r, 500));
             alert(JSON.stringify(values, null, 2));
@@ -136,15 +83,19 @@ export const FormValidationSchema = () => {
 
               <div>
                 <label htmlFor="firstName">First Name</label>
-                <Field id="firstName" name="firstName" placeholder="Jane" />
-                {errors.firstName && touched.firstName ? (
-                  <div className="errorAnnouncement">{errors.firstName}</div>
-                ) : null}
+                <div>
+                  <Field id="firstName" name="firstName" placeholder="Jane" />
+                  {errors.firstName && touched.firstName ? (
+                    <div className="errorAnnouncement">{errors.firstName}</div>
+                  ) : null}
+                </div>
                 <label htmlFor="lastName">Last Name</label>
-                <Field id="lastName" name="lastName" placeholder="Doe" />
-                {errors.lastName && touched.lastName ? (
-                  <div className="errorAnnouncement">{errors.lastName}</div>
-                ) : null}
+                <div>
+                  <Field id="lastName" name="lastName" placeholder="Doe" />
+                  {errors.lastName && touched.lastName ? (
+                    <div className="errorAnnouncement">{errors.lastName}</div>
+                  ) : null}
+                </div>
               </div>
               <div>
                 <label htmlFor="birthDate">Birth Date</label>
@@ -157,13 +108,17 @@ export const FormValidationSchema = () => {
                 {errors.birthDate && touched.birthDate ? (
                   <div className="errorAnnouncement">{errors.birthDate}</div>
                 ) : null}
+
                 <label htmlFor="phoneNumber">Phone Number</label>
                 <Field
                   id="phoneNumber"
                   name="phoneNumber"
                   placeholder="507123098"
-                  type="tel"
+                  type="text"
                 />
+                {errors.phoneNumber && touched.phoneNumber ? (
+                  <div className="errorAnnouncement">{errors.phoneNumber}</div>
+                ) : null}
               </div>
               <div>
                 <label htmlFor="email">Email</label>
@@ -276,10 +231,10 @@ export const FormValidationSchema = () => {
 
               <div>
                 <label>Face photo</label>
-                <DragAndDrop />
+                <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
 
                 <label>silhouette photo</label>
-                <DragAndDrop />
+                <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
               </div>
               <div>
                 <button onClick={submitForm} type="submit">
@@ -294,7 +249,7 @@ export const FormValidationSchema = () => {
   );
 };
 
-const FormApply = styled.form`
+const FormApply = styled.div`
   font-weight: 600;
   width: 90%;
   margin: 0 auto;
@@ -323,8 +278,6 @@ const FormApply = styled.form`
 
   .errorAnnouncement {
     color: var(--error-color);
-    transform: translateX(-300px);
-    padding-left: 2rem;
   }
   button[type='submit'] {
     /* Style z Link */

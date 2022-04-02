@@ -3,7 +3,7 @@ import FeatureSection from './FeatureSection';
 import { H3 } from './Headers';
 import Logo from './Logo';
 import Paragraph from './Paragraph';
-import DivWrap from './DivWrap';
+import Container from './Container';
 import { social } from '../data/socialmediaLinks';
 import SocialIcons from './SocialIcons';
 import { contactUs } from '../data/contactUs';
@@ -24,15 +24,15 @@ const Footer = () => {
         backgroundColor="var(--dark-gray)"
         backgroundImage="url(./photos/model2.png)"
       >
-        <DivWrap>
+        <Container>
           <Logo variant="light" />
           <Paragraph>
             Nulla tempor justo vel nisl dictum sagittis. Sed vel nisi eros. Nam
             euismod gravida tortor id tincidunt. Proin eget ultricies quam. Nunc
             dapibus, diam faucibus feugiat sagittis, sem magna accumsan.{' '}
           </Paragraph>
-        </DivWrap>
-        <DivWrap>
+        </Container>
+        <Container>
           <H3Footer>Contact us</H3Footer>
           <div>
             {contactUs.map(contact => {
@@ -45,8 +45,8 @@ const Footer = () => {
               );
             })}
           </div>
-        </DivWrap>
-        <DivWrap>
+        </Container>
+        <Container>
           <H3Footer>Recent news</H3Footer>
           <News>
             {news.map(post => {
@@ -62,8 +62,8 @@ const Footer = () => {
               );
             })}
           </News>
-        </DivWrap>
-        <DivWrap>
+        </Container>
+        <Container>
           <H3Footer>Newsletter</H3Footer>
           <Paragraph>
             Don't forget to subscribe to receive the latest news from us! Fill
@@ -91,7 +91,7 @@ const Footer = () => {
               );
             })}
           </SocialIcons>
-        </DivWrap>
+        </Container>
       </FeatureSection>
       <ColumnSection
         backgroundColor="var(--black)"

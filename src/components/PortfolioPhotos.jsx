@@ -12,13 +12,11 @@ const PortfolioPhotos = ({ photos }) => {
   const photoCategories = photos.map(photo => photo.category);
   const categories = Array.from(new Set(photoCategories));
   categories.unshift('all');
-  console.log(categories);
 
   const [filteredPhotos, setFilteredPhotos] = useState(photos);
 
   const handleSelectCategory = category => {
     setSelectedCategory(category);
-    console.log(category, selectedCategory);
     const selectedPhotos =
       category === 'all'
         ? photos

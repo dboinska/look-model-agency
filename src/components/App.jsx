@@ -30,12 +30,9 @@ function App() {
             </>
           }
         />
-        <Route path="/" element={<HomePage />} />
         <Route path="/gallery" element={<HomePage />} />
         <Route path="/apply" element={<ApplyPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        {/* <Route path="/notfound" element={<NotFoundPage />} /> */}
-        {/* <Route path="about" element={<About />} /> */}
       </Routes>
     </HelmetProvider>
   );
