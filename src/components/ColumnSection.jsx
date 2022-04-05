@@ -20,6 +20,9 @@ const ColumnSection = styled.section`
       min-width: 350px;
     }
   }
+  a {
+    text-decoration: none;
+  }
 `;
 
 export default ColumnSection;

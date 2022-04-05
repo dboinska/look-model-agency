@@ -35,6 +35,10 @@ const SocialIcons = styled.ul`
     }
   }
 
+  @media screen and (min-width: 992px) {
+    display: ${props => (props.variant === 'gray' ? 'flex' : 'none')};
+  }
+
   @media screen and (min-width: 1200px) {
     display: flex;
   }

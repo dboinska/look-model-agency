@@ -10,14 +10,6 @@ const Container = styled.div`
   position: relative;
   align-self: flex-start;
 
-  .socialIcons {
-    padding: 0;
-    a {
-      color: var(--gray);
-      padding-right: 1rem;
-    }
-  }
-
   ${H3} {
     font-size: 16px;
     margin: 1rem 0;

@@ -3,7 +3,7 @@ import styled from 'styled-components/macro';
 
 import Heading from './Heading';
 import { SmallButton } from './Button';
-import { H2, H3, H4 } from './Headers';
+import { H2, H3 } from './Headers';
 import FeatureSection from './FeatureSection';
 import FilterButton from './FilterButton';
 import Container from './Container';
@@ -82,9 +82,9 @@ const Blog = ({ posts }) => {
 };
 
 const ContainerBlog = styled(Container)`
-  width: 400px;
+  width: 300px;
   /* width: 200px; */
-  height: 500px;
+  height: 450px;
   &:first-of-type {
     height: 350px;
     @media screen and (min-width: 727px) {
@@ -114,19 +114,27 @@ const ContainerBlog = styled(Container)`
   img {
     object-fit: cover;
     width: 100%;
-    height: 78%;
+    height: 84%;
     position: absolute;
     top: 0;
+
+    @media screen and (min-width: 992px) {
+      height: 74%;
+    }
   }
 
   .div__blogTxt {
-    height: 22%;
+    height: 16%;
     position: absolute;
     bottom: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media screen and (min-width: 992px) {
+      height: 26%;
+    }
   }
 `;
 export default Blog;
