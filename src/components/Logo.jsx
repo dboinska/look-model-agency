@@ -2,37 +2,39 @@ import styled from 'styled-components/macro';
 import { Routes, Route, Link } from 'react-router-dom';
 
 const Logo = ({ variant }) => (
-  <LogoStyled variant={variant}>
+  <LogoStyled variant={variant} as="h2">
     <Link to="/">
-      <h2>LOOK</h2>
+      <span>LOOK</span>
       <span>Model agency</span>
     </Link>
   </LogoStyled>
 );
 
 const LogoStyled = styled.div`
-  height: 86px;
+  align-items: center;
+  display: flex;
 
   a {
     text-decoration: none;
     color: ${props =>
       props.variant === 'light' ? 'var(--white)' : 'var(--black)'};
+    display: flex;
+    flex-direction: column;
   }
 
-  h2 {
+  span:first-of-type {
     text-transform: uppercase;
     font-family: 'Cinzel', serif;
     font-size: 32px;
     font-weight: 400;
   }
-
-  span {
+  span:last-of-type {
     text-transform: uppercase;
     font-size: 12px;
     font-weight: 400;
     font-family: 'Arsenal', sans-serif;
-    transform: translate(5px, -50px);
-    display: inline-block;
+    transform: translate(5px, -16px);
+    /* display: inline-block; */
   }
 `;
 

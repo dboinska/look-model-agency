@@ -9,7 +9,7 @@ import Heading from './Heading';
 import Paragraph from './Paragraph';
 import List from './List';
 import PortfolioPhotos from './PortfolioPhotos';
-import { H2, H2WithoutMargin, H3 } from './Headers';
+import { H2, H3 } from './Headers';
 import { SmallButton } from './Button';
 import TeamCarousel from './TeamCarousel';
 import MyLink from './MyLink';
@@ -79,7 +79,7 @@ const HomePage = () => {
         <FeatureSection>
           <div className="div__txt onBig--order2">
             <Heading heading="Casting">
-              <H2WithoutMargin>Do you want be a</H2WithoutMargin>
+              <H2 variant="marginNone">Do you want be a</H2>
               <H3>Super model</H3>
             </Heading>
             <FeatureParagraph>
@@ -102,7 +102,7 @@ const HomePage = () => {
         <ColumnSection>
           <div className="div__center">
             <Heading heading="Team" headingPosition="center">
-              <H2WithoutMargin>Super models</H2WithoutMargin>
+              <H2 variant="marginNone">Super models</H2>
             </Heading>
           </div>
           <TeamCarousel team={team} />
@@ -113,9 +113,9 @@ const HomePage = () => {
           backgroundImage="url('../photos/FASHION2.png')"
         >
           <div>
-            <H2WithoutMargin>
+            <H2 variant="marginNone">
               We have best of models from the fashion industry
-            </H2WithoutMargin>
+            </H2>
             <H3>who involved in the fashion week around the world</H3>
           </div>
           <div>

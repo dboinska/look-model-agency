@@ -17,7 +17,7 @@ const FeatureSection = styled.section`
   }
   picture {
     width: 300px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 
     img {
       object-fit: contain;
@@ -29,15 +29,15 @@ const FeatureSection = styled.section`
     background-image: ${props => props.backgroundImage || 'none'};
     background-position: right;
     background-size: contain;
+    background-repeat: no-repeat;
   }
 
   @media screen and (min-width: 992px) {
     flex-direction: ${props => props.flexDirection || 'row'};
     flex-wrap: nowrap;
     padding: ${props => props.padding || '2rem 4rem'};
-    margin: ${props => props.margin || '40px 0'};
+    margin: ${props => props.margin || '2.5rem 0'};
     margin: 0 auto;
-    /* justify-content: space-between; */
 
     picture {
       margin-top: 0;

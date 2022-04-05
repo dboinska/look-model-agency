@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
+import { H3 } from './Headers';
 
-const DivWrap = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +10,7 @@ const DivWrap = styled.div`
   position: relative;
   align-self: flex-start;
 
-  .socialIcons {
-    padding: 0;
-    a {
-      color: var(--gray);
-      padding-right: 1rem;
-    }
-  }
-
-  H3 {
+  ${H3} {
     font-size: 16px;
     margin: 1rem 0;
     padding: 0;
@@ -38,4 +31,4 @@ const DivWrap = styled.div`
   }
 `;
 
-export default DivWrap;
+export default Container;

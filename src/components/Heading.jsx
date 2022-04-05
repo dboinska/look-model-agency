@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import styled, { css } from 'styled-components/macro';
 
-const AVAILABLE_POSITIONS = ['left', 'right', 'center'];
+const AVAILABLE_POSITIONS = ['left', 'right', 'center', 'none'];
 const Heading = ({
   children,
   heading,
@@ -29,6 +29,7 @@ const line = css`
 `;
 
 const StyledHeading = styled.div`
+  margin-bottom: 1rem;
   .headingSection {
     text-transform: uppercase;
     font-size: 1.6rem;
@@ -39,6 +40,13 @@ const StyledHeading = styled.div`
 
     &::after {
       ${line}
+    }
+  }
+
+  &.heading--none {
+    .headingSection:before,
+    .headingSection:after {
+      display: none;
     }
   }
 
