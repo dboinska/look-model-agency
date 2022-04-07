@@ -1,19 +1,52 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
+import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+
 import FeatureSection from './FeatureSection';
 import Heading from './Heading';
 import { H2 } from './Headers';
-import styled from 'styled-components';
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components/macro';
 import DragAndDrop from './DragAndDrop';
 import { SignUpSchema } from './ValidationForm';
 import Paragraph from './Paragraph';
 import { AiOutlineCheck } from 'react-icons/ai';
+import { useLocalStorageState } from './hookLocalStorage';
+
+const LOCAL_STORAGE_KEY = 'customLocalStorageKey';
+const INITIAL_VALUES = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phoneNumber: '',
+  address: '',
+  city: '',
+  postalCode: '',
+  countryCode: '',
+  birthDate: '',
+  hairColor: '',
+  eyeColor: '',
+  height: '',
+  weight: '',
+  chestWidth: '',
+  waistWidth: '',
+  hipWidth: '',
+  shoeSize: '',
+  test: '',
+};
+
+const eyeColors = ['blue', 'green', 'brown', 'gray'];
 
 export const FormValidationSchema = () => {
-  const [name, setName] = useState('');
-  const [selectedFile, setSelectedFile] = useState(null);
-  const submitForm = () => {};
+  const eyeOptions = eyeColors.map((product, key) => (
+    <option value={product} key={key}>
+      {product.toUpperCase()}
+    </option>
+  ));
+
+  const [initialValues, handleUpdateForm] = useLocalStorageState({
+    key: LOCAL_STORAGE_KEY,
+    value: INITIAL_VALUES,
+  });
 
   const [checkedOptional, setCheckedOptional] = useState(false);
   const handleChangeOptional = () => {
@@ -31,241 +64,290 @@ export const FormValidationSchema = () => {
       </Heading>
       <FormApply>
         <Formik
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-            address: '',
-            city: '',
-            postalcode: '',
-            countryCode: '',
-            birthDate: '',
-            hairColor: '',
-            eyeColor: '',
-            height: '',
-            weight: '',
-            chestWidth: '',
-            waistWidth: '',
-            hipWidth: '',
-            shoeSize: '',
-          }}
+          initialValues={initialValues}
           validationSchema={SignUpSchema}
           onSubmit={async values => {
             await new Promise(r => setTimeout(r, 500));
             alert(JSON.stringify(values, null, 2));
+            handleUpdateForm(values);
           }}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, setFieldValue }) => (
             <Form>
               <Heading
                 heading="personal details"
                 headingPosition="none"
               ></Heading>
-
               <RequireContainer>
-                <Label htmlFor="firstName">First Name</Label>
-                <Field id="firstName" name="firstName" placeholder="Jane" />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="firstName"
-                />
-
-                <Label htmlFor="lastName">Last Name</Label>
-                <Field id="lastName" name="lastName" placeholder="Doe" />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="lastName"
-                />
+                <FieldContainer>
+                  <Label htmlFor="firstName">First Name</Label>
+                  <Field id="firstName" name="firstName" placeholder="Jane" />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="firstName"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="lastName">Last Name</Label>
+                  <Field id="lastName" name="lastName" placeholder="Doe" />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="lastName"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="birthDate">Birth Date</Label>
-                <Field
-                  id="birthDate"
-                  name="birthDate"
-                  placeholder="01.01.2001"
-                  type="date"
-                />
-                {/* {errors.birthDate && touched.birthDate ? (
-                  <div className="errorAnnouncement">{errors.birthDate}</div>
-                ) : null} */}
-
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="birthDate"
-                />
-
-                <Label htmlFor="phoneNumber">Phone Number</Label>
-                <Field
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  placeholder="507123098"
-                  type="text"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="phoneNumber"
-                />
+                <FieldContainer>
+                  <Label htmlFor="birthDate">Birth Date</Label>
+                  <Field
+                    id="birthDate"
+                    name="birthDate"
+                    placeholder="01.01.2001"
+                    type="date"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="birthDate"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="phoneNumber">Phone Number</Label>
+                  <Field
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="507123098"
+                    type="text"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="phoneNumber"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="email">Email</Label>
-                <Field
-                  id="email"
-                  name="email"
-                  placeholder="jane@acme.com"
-                  type="email"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="email"
-                />
+                <FieldContainer>
+                  <Label htmlFor="email">Email</Label>
+                  <Field
+                    id="email"
+                    name="email"
+                    placeholder="jane@acme.com"
+                    type="email"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="email"
+                  />
+                </FieldContainer>
 
-                <Label htmlFor="address">Address</Label>
-                <Field
-                  id="address"
-                  name="address"
-                  placeholder="Marszałkowska 3/12 "
-                  type="text"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="address"
-                />
+                <FieldContainer>
+                  <Label htmlFor="address">Address</Label>
+                  <Field
+                    id="address"
+                    name="address"
+                    placeholder="Marszałkowska 3/12 "
+                    type="text"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="address"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="city">City</Label>
-                <Field id="city" name="city" placeholder="Warsaw" type="text" />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="city"
-                />
-
-                <Label htmlFor="countryCode">Country</Label>
-                <Field
-                  id="countryCode"
-                  name="countryCode"
-                  placeholder="PL"
-                  type="text"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="countryCode"
-                />
+                <FieldContainer>
+                  <Label htmlFor="city">City</Label>
+                  <Field
+                    id="city"
+                    name="city"
+                    placeholder="Warsaw"
+                    type="text"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="city"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="countryCode">Country</Label>
+                  <Field
+                    id="countryCode"
+                    name="countryCode"
+                    placeholder="PL"
+                    type="text"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="countryCode"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="postalCode">Postal code</Label>
-                <Field
-                  id="postalCode"
-                  name="postalCode"
-                  placeholder="00-123"
-                  type="text"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="postalCode"
-                />
-                <Label htmlFor=""></Label>
-                <Label htmlFor=""></Label>
+                <FieldContainer>
+                  <Label htmlFor="postalCode">Postal code</Label>
+                  <Field
+                    id="postalCode"
+                    name="postalCode"
+                    placeholder="00-123"
+                    type="text"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="postalCode"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor=""></Label>
+                  <Label htmlFor=""></Label>
+                </FieldContainer>
               </RequireContainer>
               <Heading
                 heading="physical details"
                 headingPosition="none"
               ></Heading>
               <RequireContainer>
-                <Label htmlFor="height">Height</Label>
-                <Field
-                  id="height"
-                  name="height"
-                  placeholder="1.93"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="height"
-                />
-                <Label htmlFor="weight">Weight</Label>
-                <Field
-                  id="weight"
-                  name="weight"
-                  placeholder="60"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="weight"
-                />
+                <FieldContainer>
+                  <Label htmlFor="hairColor">Hair Color</Label>
+                  <Field
+                    id="hairColor"
+                    name="hairColor"
+                    placeholder="black"
+                    type="string"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="hairColor"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="eyeColor">eye color</Label>
+                  <Field name="eyeColor" as="select">
+                    <option value={''}>
+                      {`select a product`.toUpperCase()}
+                    </option>
+                    {eyeOptions}
+                  </Field>
+
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="eyeColor"
+                  />
+                </FieldContainer>
+              </RequireContainer>
+
+              <RequireContainer>
+                <FieldContainer>
+                  <Label htmlFor="height">Height (cm)</Label>
+                  <Field
+                    id="height"
+                    name="height"
+                    placeholder="193"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="height"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="weight">Weight (kg)</Label>
+                  <Field
+                    id="weight"
+                    name="weight"
+                    placeholder="60"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="weight"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="chestWidth">Chest Width</Label>
-                <Field
-                  id="chestWidth"
-                  name="chestWidth"
-                  placeholder="87"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="chestWidth"
-                />
-                <Label htmlFor="waistWidth">Waist Width</Label>
-                <Field
-                  id="waistWidth"
-                  name="waistWidth"
-                  placeholder="60"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="waistWidth"
-                />
+                <FieldContainer>
+                  {' '}
+                  <Label htmlFor="chestWidth">Chest Width (cm)</Label>
+                  <Field
+                    id="chestWidth"
+                    name="chestWidth"
+                    placeholder="87"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="chestWidth"
+                  />
+                </FieldContainer>
+
+                <FieldContainer>
+                  <Label htmlFor="waistWidth">Waist Width (cm)</Label>
+                  <Field
+                    id="waistWidth"
+                    name="waistWidth"
+                    placeholder="60"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="waistWidth"
+                  />
+                </FieldContainer>
               </RequireContainer>
               <RequireContainer>
-                <Label htmlFor="hipWidth">Hip Width</Label>
-                <Field
-                  id="hipWidth"
-                  name="hipWidth"
-                  placeholder="90"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="hipWidth"
-                />
-                <Label htmlFor="shoeSize">shoe Size</Label>
-                <Field
-                  id="shoeSize"
-                  name="shoeSize"
-                  placeholder="39"
-                  type="number"
-                />
-                <FieldMessage
-                  touched={touched}
-                  errors={errors}
-                  fieldName="shoeSize"
-                />
+                <FieldContainer>
+                  <Label htmlFor="hipWidth">Hip Width (cm)</Label>
+                  <Field
+                    id="hipWidth"
+                    name="hipWidth"
+                    placeholder="90"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="hipWidth"
+                  />
+                </FieldContainer>
+                <FieldContainer>
+                  <Label htmlFor="shoeSize">shoe Size</Label>
+                  <Field
+                    id="shoeSize"
+                    name="shoeSize"
+                    placeholder="39"
+                    type="number"
+                  />
+                  <FieldMessage
+                    touched={touched}
+                    errors={errors}
+                    fieldName="shoeSize"
+                  />
+                </FieldContainer>
               </RequireContainer>
+
               <Heading heading="your photo" headingPosition="none"></Heading>
-
               <RequireContainer>
-                <Label>Face photo</Label>
-                <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
-
-                <Label>silhouette photo</Label>
-                <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
+                <FieldContainer height="auto">
+                  <Label width="200px">Face photo</Label>
+                  <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
+                </FieldContainer>
+                <FieldContainer height="auto">
+                  <Label width="200px">silhouette photo</Label>
+                  <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
+                </FieldContainer>
               </RequireContainer>
               <div className="agreement">
                 <Paragraph>
@@ -300,9 +382,7 @@ export const FormValidationSchema = () => {
                 />
               </div>
               <div>
-                <button onClick={submitForm} type="submit">
-                  Submit
-                </button>
+                <button type="submit">Submit</button>
               </div>
             </Form>
           )}
@@ -312,10 +392,22 @@ export const FormValidationSchema = () => {
   );
 };
 
+const fontSize = css`
+  font-size: 0.8rem;
+  @media screen and (min-width: 820px) {
+    font-size: 1rem;
+  }
+`;
+
 const FormApply = styled.div`
   font-weight: 600;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+
+  @media screen and (min-width: 820px) {
+    width: 90%;
+    padding: 1rem;
+  }
 
   .agreement {
     margin: 2rem auto auto auto;
@@ -328,28 +420,49 @@ const FormApply = styled.div`
 
   .errorAnnouncement {
     color: var(--error-color);
+    ${fontSize};
   }
 
   .successAnnouncement {
     color: var(--success-color);
+    ${fontSize};
   }
 
   input {
     border: none;
     border-bottom: 2px solid var(--second-color);
-
     text-align: right;
     padding-right: 1rem;
-    width: 150px;
+    width: 120px;
+    ${fontSize};
+
+    &[type='checkbox'] {
+      width: auto;
+      margin: 1rem 1rem 1rem 0;
+    }
+
     @media screen and (min-width: 564px) {
       width: 200px;
     }
   }
 
-  input[type='checkbox'] {
-    width: auto;
-    margin: 1rem 1rem 1rem 0;
+  select {
+    text-transform: uppercase;
+    border: none;
+    width: 120px;
+    border-bottom: 2px solid var(--second-color);
+    text-align: right;
+    ${fontSize};
+    & option {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    @media screen and (min-width: 820px) {
+      width: 200px;
+    }
   }
+
   button[type='submit'] {
     /* Style z Link */
     background-color: var(--black);
@@ -367,7 +480,7 @@ const FormApply = styled.div`
       color: var(--black);
     }
 
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 820px) {
       margin-top: 24px;
       padding: 12px 24px;
       font-size: 1.2rem;
@@ -376,12 +489,16 @@ const FormApply = styled.div`
 `;
 
 const Label = styled.label`
+  ${fontSize};
   text-transform: uppercase;
   color: var(--black);
-  padding: 0 1rem;
-  width: 160px;
+  width: ${props => props.width || '160px'};
+
   @media screen and (min-width: 564px) {
     width: 200px;
+    padding: 0 1rem;
+    font-size: 1rem;
+    max-width: 220px;
   }
 `;
 
@@ -390,7 +507,7 @@ const RequireContainer = styled.div`
   flex-wrap: wrap;
   max-width: 500px;
   margin: 0 auto;
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 820px) {
     max-width: 90%;
     margin: 0 auto;
     display: flex;
@@ -424,3 +541,14 @@ const FieldMessage = ({ touched, errors, fieldName }) => (
     )}
   </>
 );
+
+const FieldContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 100vw;
+  flex-wrap: wrap;
+  height: ${props => props.height || '30px'};
+  @media screen and (max-width: 820px) {
+    width: 100vw;
+  }
+`;

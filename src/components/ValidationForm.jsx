@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import { differenceInCalendarYears, parse, formatDistance } from 'date-fns';
 import subYears from 'date-fns/subYears';
 import isBefore from 'date-fns/isBefore';
 
@@ -26,9 +25,11 @@ function getPostalCodeRegExp(countryCode) {
 
 function isAdult(birthDate) {
   const today = new Date();
-  const subdate = subYears(today, 18);
-  return isBefore(birthDate, subdate);
+  const subDate = subYears(today, 18);
+  return isBefore(birthDate, subDate);
 }
+
+const eyeColors = ['blue', 'green', 'brown', 'gray'];
 
 export const SignUpSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -73,18 +74,38 @@ export const SignUpSchema = Yup.object().shape({
 
   hairColor: Yup.string().required('Required'),
 
-  eyeColor: Yup.string().required('Required'),
+  eyeColor: Yup.string().required('Required').oneOf(eyeColors),
 
-  height: Yup.number().positive().min(167, 'To Little!').required('Required'),
+  height: Yup.number()
+    .positive()
+    .min(167, 'To Little!')
+    .max(240, 'Are you sure?')
+    .required('Required'),
 
   weight: Yup.number()
     .positive()
     .min(50, 'To Little!')
+    .max(88, 'To Much!')
+    .required('Required'),
+  chestWidth: Yup.number()
+    .positive()
+    .min(60, 'To Little!')
+    .max(100, 'To Much!')
+    .required('Required'),
+
+  waistWidth: Yup.number()
+    .positive()
+    .min(50, 'To Little!')
     .max(80, 'To Much!')
     .required('Required'),
-  chestWidth: Yup.number().positive().required('Required'),
-
-  waistWidth: Yup.number().positive().required('Required'),
-  hipWidth: Yup.number().positive().required('Required'),
-  shoeSize: Yup.number().positive().required('Required'),
+  hipWidth: Yup.number()
+    .positive()
+    .min(70, 'To Little!')
+    .max(110, 'To Much!')
+    .required('Required'),
+  shoeSize: Yup.number()
+    .positive()
+    .min(32, 'To Little!')
+    .max(44, 'To Much!')
+    .required('Required'),
 });
