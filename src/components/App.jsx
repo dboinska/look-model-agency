@@ -67,7 +67,7 @@ export const GlobalStyles = createGlobalStyle`
             monospace;
     }
 
-
+   
 `;
 
 export default App;

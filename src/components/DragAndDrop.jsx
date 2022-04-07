@@ -37,6 +37,7 @@ const DragAndDrop = styled.div`
   margin: 1rem 0;
   width: 180px;
   @media screen and (min-width='1200px') {
+    width: 220px;
     margin: 0;
   }
 
