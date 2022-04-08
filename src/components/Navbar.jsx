@@ -6,10 +6,21 @@ import { social } from '../data/socialmediaLinks';
 import Logo from './Logo';
 import SocialIcons from './SocialIcons';
 
+import Orchestration from './Orchestration';
+
 const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener('scroll', changeNavbarColor);
 
   useEffect(() => {
     // const linksHeight = linksRef.current.getBoundingClientRect().height;
@@ -22,7 +33,7 @@ const Navbar = () => {
   }, [showLinks]);
   return (
     <nav>
-      <FloatMenu>
+      <FloatMenu className={colorChange ? 'navbar colorChange' : 'navbar'}>
         <NavHeader>
           <Logo />
           {/* <img src={logo} alt="logo" /> */}
@@ -69,13 +80,16 @@ const links_wrapper = css`
 `;
 
 const FloatMenu = styled.div`
-  background-color: var(--main-color);
+  background-color: transparent;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
   /* border-bottom: 1px solid var(--second-color); */
 
+  &.colorChange {
+    background-color: var(--main-color);
+  }
   @media screen and (min-width: 1200px) {
     ${links_wrapper}
   }

@@ -3,6 +3,9 @@ import styled from 'styled-components/macro';
 import Navbar from './Navbar';
 import Hero from './Hero';
 import heroPhoto from '../photos/heroPhoto.png';
+
+import model from '../photos/model.png';
+import modelHero2 from '../photos/modelHero2.png';
 import afroModelBigSize from '../photos/afroModel2BigSize.jpg';
 import afroModelSmallSize from '../photos/afroModel2SmallSize.jpg';
 import Heading from './Heading';
@@ -30,6 +33,8 @@ import { Link } from 'react-router-dom';
 
 import TestimonialsPage from './TestimonialsPage';
 
+import HeroCarousel from './HeroSlider';
+
 const HomePage = () => {
   return (
     <>
@@ -39,7 +44,8 @@ const HomePage = () => {
       </Helmet>
       <Navbar />
       <main>
-        <Hero
+        <HeroCarousel />
+        {/* <Hero
           imageUrl={heroPhoto}
           subHeading="Welcome to professional"
           heading="Model Agency"
@@ -51,6 +57,27 @@ const HomePage = () => {
           link="\"
           linkLabel="Read More"
         ></Hero>
+        <Hero
+          backgroundColor="var(--salmon)"
+          flexDirection="row"
+          padding="0 0 4rem 4rem"
+          imageUrl={modelHero2}
+          subHeading="Welcome to professional"
+          heading="Model Agency"
+          description="Nunc vel scelerisque turpis, lobortis ullamcorper quam. Maecenas interdum non leo non pellentesque. Quisque a quam dignissim nisi volutpat venenatis maximus eu velit. Morbi eget sollicitudin diam. Mauris mattis laoreet diam ac posuere. Curabitur maximus nulla nec libero tincidunt, at tincidunt orci lobortis."
+          link="\"
+          linkLabel="Read More"
+        ></Hero>
+        <Hero
+          backgroundColor="var(--light-gray)"
+          imageUrl={model}
+          subHeading="Welcome to professional"
+          heading="Model Agency"
+          description="Nam tincidunt urna id porttitor posuere. Sed sodales ligula commodo dictum ultricies. Nam mattis erat sit amet odio ultrices dapibus. Mauris malesuada fermentum eleifend. Morbi eu sagittis elit, vitae aliquam orci. Vestibulum feugiat odio lacus, sed porta odio auctor in. Nam vulputate ipsum dignissim erat ultricies, a vestibulum arcu consequat. "
+          link="\"
+          linkLabel="Read More"
+        ></Hero> */}
+
         <FeatureSection>
           <div className="div__txt">
             <Heading heading="History">
