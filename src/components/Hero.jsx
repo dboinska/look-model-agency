@@ -8,6 +8,7 @@ const Hero = ({
   description,
   linkLabel,
   link,
+  style,
   ...rest
 }) => {
   return (
@@ -26,7 +27,7 @@ const Hero = ({
 };
 
 const HeroSection = styled.div`
-  background-color: var(--main-color);
+  background-color: ${props => props.backgroundColor || 'var(--main-color)'};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -38,16 +39,17 @@ const HeroSection = styled.div`
   & .main__mainText {
     text-align: center;
     text-transform: uppercase;
-    padding: 580px 20px 20px 20px;
-    min-height: 100vh;
+    /* padding: 380px 20px 20px 20px;
+    min-height: 100vh; */
+    padding: 0 2rem;
   }
 
   @media screen and (min-width: 1200px) {
-    flex-direction: row-reverse;
+    flex-direction: ${props => props.flexDirection || 'row-reverse'};
     .main__mainText {
       margin: 50px 100px 0 0;
       width: 60%;
-      padding: 0;
+      padding: ${props => props.padding || '0'};
     }
   }
 `;
@@ -116,14 +118,20 @@ const Paragraph = styled.p`
 const HeroPhoto = styled.figure`
   display: flex;
   justify-content: center;
+  width: 230px;
+  height: 290px;
+  margin: 0 auto;
   & img {
-    height: 30%;
+    height: 100%;
+    object-fit: cover;
     display: flex;
-    transform: translateY(50%);
+    transform: translateY(13%);
   }
 
   @media screen and (min-width: 1200px) {
+    /* height: 30%; */
     width: 40%;
+    height: auto;
     margin-bottom: 0;
     & img {
       height: 100%;

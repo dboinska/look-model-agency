@@ -51,6 +51,9 @@ export const GlobalStyles = createGlobalStyle`
     --black: #000;
     --gray: #7a7a7a;
     --white: #fff;
+    --salmon: #FFE7CE;
+    --cappuccino: #DBB995;
+    --xxx: #FFF4E7;
     --transition: all 0.3s linear;
     }
     body {
@@ -66,8 +69,6 @@ export const GlobalStyles = createGlobalStyle`
         font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
             monospace;
     }
-
-   
 `;
 
 export default App;
