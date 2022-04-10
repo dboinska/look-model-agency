@@ -1,6 +1,7 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const MyLink = styled.a`
+const MyLink = styled(Link)`
   background-color: var(--black);
   text-transform: uppercase;
   font-weight: 500;
