@@ -4,14 +4,12 @@ import { H3 } from './Headers';
 import Logo from './Logo';
 import Paragraph from './Paragraph';
 import Container from './Container';
-import { social } from '../data/socialmediaLinks';
-import SocialIcons from './SocialIcons';
 import { contactUs } from '../data/contactUs';
 import { blog } from '../data/blog';
 import { MdSend, MdCopyright } from 'react-icons/md';
 import ColumnSection from './ColumnSection';
 
-const Footer = () => {
+const Footer = ({ socialIcons: SocialIcons }) => {
   const news = blog.slice(0, 2);
   return (
     <>
@@ -80,17 +78,7 @@ const Footer = () => {
               </button>
             </div>
           </FormNewsletter>
-          {/* </form> */}
-          <SocialIcons display="flex" justifyContent="left" className="white">
-            {social.map(socialIcon => {
-              const { id, url, icon } = socialIcon;
-              return (
-                <li key={id}>
-                  <a href={url}>{icon}</a>
-                </li>
-              );
-            })}
-          </SocialIcons>
+          <SocialIcons />
         </Container>
       </FeatureSection>
       <ColumnSection
