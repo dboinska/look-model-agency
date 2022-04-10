@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Logo = ({ variant }) => (
   <LogoStyled variant={variant} as="h2">
@@ -13,6 +13,7 @@ const Logo = ({ variant }) => (
 const LogoStyled = styled.div`
   align-items: center;
   display: flex;
+  z-index: 999;
 
   a {
     text-decoration: none;
@@ -34,7 +35,6 @@ const LogoStyled = styled.div`
     font-weight: 400;
     font-family: 'Arsenal', sans-serif;
     transform: translate(5px, -16px);
-    /* display: inline-block; */
   }
 `;
 

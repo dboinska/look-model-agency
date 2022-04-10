@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components/macro';
-import { FaBars } from 'react-icons/fa';
 import { links } from '../data/routes';
 import Logo from './Logo';
+import MenuButton from './MenuButton';
 
 const Navbar = ({ socialIcons: SocialIcons }) => {
   const [showLinks, setShowLinks] = useState(false);
@@ -19,25 +19,30 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
   window.addEventListener('scroll', changeNavbarColor);
 
   useEffect(() => {
-    // const linksHeight = linksRef.current.getBoundingClientRect().height;
     if (showLinks) {
       console.log(linksContainerRef);
       linksContainerRef.current.style.height = '100vh';
+
+      linksContainerRef.current.style.background = 'var(--main-color)';
+      linksContainerRef.current.style.position = 'absolute';
+      linksContainerRef.current.style.top = '0';
+      linksContainerRef.current.style.width = '100%';
     } else {
       linksContainerRef.current.style.height = '0px';
     }
   }, [showLinks]);
+
   return (
     <nav>
       <FloatMenu className={colorChange ? 'navbar colorChange' : 'navbar'}>
         <NavHeader>
           <Logo />
-          <button
-            className="nav-toggle"
-            onClick={() => setShowLinks(!showLinks)}
-          >
-            <FaBars />
-          </button>
+          <div className="burgerContainer">
+            <MenuButton
+              isOpen={showLinks}
+              onClick={() => setShowLinks(!showLinks)}
+            />
+          </div>
         </NavHeader>
         <LinksContainer ref={linksContainerRef}>
           <ul className="links" ref={linksRef}>
@@ -51,7 +56,6 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
             })}
           </ul>
         </LinksContainer>
-
         <SocialIcons />
       </FloatMenu>
     </nav>
@@ -72,13 +76,23 @@ const FloatMenu = styled.div`
   top: 0;
   z-index: 999;
   transition: all 0.3s ease;
-  /* border-bottom: 1px solid var(--second-color); */
 
   &.colorChange {
     background-color: var(--main-color);
   }
   @media screen and (min-width: 1200px) {
     ${links_wrapper}
+  }
+
+  & .burgerContainer {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 `;
 
@@ -121,6 +135,14 @@ const LinksContainer = styled.div`
     text-decoration: none;
     text-align: center;
 
+    @media screen and (max-width: 1200px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 6rem;
+    }
+
     a {
       color: var(--black);
       text-decoration: none;
@@ -133,6 +155,7 @@ const LinksContainer = styled.div`
     }
     li {
       list-style-type: none;
+      padding: 1rem;
     }
   }
 

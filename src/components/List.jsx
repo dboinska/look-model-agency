@@ -11,11 +11,11 @@ const List = ({ items }) => {
 };
 
 const StyledList = styled.ul`
-  margin: 0 2rem;
+  margin: 0 1rem;
   padding: 0;
 
   @media (min-width: 992px) {
-    padding-left: 2rem;
+    padding: 0 2rem;
   }
 `;
 
