@@ -2,13 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { FaBars } from 'react-icons/fa';
 import { links } from '../data/routes';
-import { social } from '../data/socialmediaLinks';
 import Logo from './Logo';
-import SocialIcons from './SocialIcons';
 
-import Orchestration from './Orchestration';
-
-const Navbar = () => {
+const Navbar = ({ socialIcons: SocialIcons }) => {
   const [showLinks, setShowLinks] = useState(false);
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
@@ -36,7 +32,6 @@ const Navbar = () => {
       <FloatMenu className={colorChange ? 'navbar colorChange' : 'navbar'}>
         <NavHeader>
           <Logo />
-          {/* <img src={logo} alt="logo" /> */}
           <button
             className="nav-toggle"
             onClick={() => setShowLinks(!showLinks)}
@@ -57,16 +52,7 @@ const Navbar = () => {
           </ul>
         </LinksContainer>
 
-        <SocialIcons>
-          {social.map(socialIcon => {
-            const { id, url, icon } = socialIcon;
-            return (
-              <li key={id}>
-                <a href={url}>{icon}</a>
-              </li>
-            );
-          })}
-        </SocialIcons>
+        <SocialIcons />
       </FloatMenu>
     </nav>
   );
@@ -85,6 +71,7 @@ const FloatMenu = styled.div`
   width: 100%;
   top: 0;
   z-index: 999;
+  transition: all 0.3s ease;
   /* border-bottom: 1px solid var(--second-color); */
 
   &.colorChange {

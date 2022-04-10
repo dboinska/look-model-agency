@@ -17,7 +17,7 @@ const Hero = ({
         <Subheading>{subHeading}</Subheading>
         <Heading>{heading}</Heading>
         <Paragraph>{description}</Paragraph>
-        <MyLink href={link}>{linkLabel}</MyLink>
+        <MyLink to={link}>{linkLabel}</MyLink>
       </div>
       <HeroPhoto>
         <img src={imageUrl} alt=""></img>

@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro';
+import { social } from '../data/socialmediaLinks';
 
-const SocialIcons = styled.ul`
+const StyledSocialIcons = styled.ul`
   display: ${props => props.display || 'none'};
   justify-content: 'left';
   padding: 0;
@@ -43,5 +44,20 @@ const SocialIcons = styled.ul`
     display: flex;
   }
 `;
+
+const SocialIcons = ({ variant }) => {
+  return (
+    <StyledSocialIcons variant={variant}>
+      {social.map(socialIcon => {
+        const { id, url, icon } = socialIcon;
+        return (
+          <li key={id}>
+            <a href={url}>{icon}</a>
+          </li>
+        );
+      })}
+    </StyledSocialIcons>
+  );
+};
 
 export default SocialIcons;

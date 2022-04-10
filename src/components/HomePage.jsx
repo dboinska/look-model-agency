@@ -1,11 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import styled from 'styled-components/macro';
-import Navbar from './Navbar';
-import Hero from './Hero';
-import heroPhoto from '../photos/heroPhoto.png';
-
-import model from '../photos/model.png';
-import modelHero2 from '../photos/modelHero2.png';
+import Layout from './Layout';
 import afroModelBigSize from '../photos/afroModel2BigSize.jpg';
 import afroModelSmallSize from '../photos/afroModel2SmallSize.jpg';
 import Heading from './Heading';
@@ -18,7 +13,6 @@ import TeamCarousel from './TeamCarousel';
 import MyLink from './MyLink';
 import FeatureSection from './FeatureSection';
 import Blog from './Blog';
-import Footer from './Footer';
 import ColumnSection from './ColumnSection';
 
 import models2SmallSize from '../photos/models2SmallSize.jpg';
@@ -29,11 +23,9 @@ import { portfolioPhotos } from '../data/PortfolioPhotos';
 import { team } from '../data/team';
 import { blog } from '../data/blog';
 
-import { Link } from 'react-router-dom';
-
 import TestimonialsPage from './TestimonialsPage';
 
-import HeroCarousel from './HeroSlider';
+import HeroCarousel from './HeroCarousel';
 
 const HomePage = () => {
   return (
@@ -42,8 +34,7 @@ const HomePage = () => {
         <title>LOOK Model Agency</title>
         <meta name="description" content="LOOK Model Agency" />
       </Helmet>
-      <Navbar />
-      <main>
+      <Layout>
         <HeroCarousel />
         {/* <Hero
           imageUrl={heroPhoto}
@@ -146,14 +137,14 @@ const HomePage = () => {
             <H3>who involved in the fashion week around the world</H3>
           </div>
           <div>
-            <Link to="/apply">
+            <MyLink to="/apply">Apply now</MyLink>
+            {/* <Link to="/apply">
               <MyLink>Apply now</MyLink>
-            </Link>
+            </Link> */}
           </div>
         </ColumnSection>
         <Blog posts={blog} />
-        <Footer />
-      </main>
+      </Layout>
     </>
   );
 };
