@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import styled, { css } from 'styled-components/macro';
 import { links } from '../data/routes';
 import Logo from './Logo';
@@ -6,19 +6,28 @@ import MenuButton from './MenuButton';
 
 const Navbar = ({ socialIcons: SocialIcons }) => {
   const [showLinks, setShowLinks] = useState(false);
+  const [windowSize, setWindowSize] = useState(() => window?.innerWidth || 0);
+
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
   const [colorChange, setColorchange] = useState(false);
-  const changeNavbarColor = () => {
-    if (window.scrollY >= 80) {
-      setColorchange(true);
-    } else {
-      setColorchange(false);
-    }
-  };
-  window.addEventListener('scroll', changeNavbarColor);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    const changeNavbarColor = () => {
+      if (window.scrollY >= 80) {
+        setColorchange(true);
+      } else {
+        setColorchange(false);
+      }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
+  }, []);
+
+  useLayoutEffect(() => {
+    const size = () => setWindowSize(window.innerWidth);
+
+    window.addEventListener('resize', size);
+
     if (showLinks) {
       console.log(linksContainerRef);
       linksContainerRef.current.style.height = '100vh';
@@ -30,7 +39,18 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
     } else {
       linksContainerRef.current.style.height = '0px';
     }
-  }, [showLinks]);
+
+    if (windowSize > 1199) {
+      setShowLinks(false);
+      linksContainerRef.current.style = {
+        height: 0,
+      };
+    }
+
+    return () => {
+      window.removeEventListener('resize', size);
+    };
+  }, [showLinks, windowSize]);
 
   return (
     <nav>
