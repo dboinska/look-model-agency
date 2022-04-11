@@ -76,6 +76,7 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
             })}
           </ul>
         </LinksContainer>
+
         <SocialIcons />
       </FloatMenu>
     </nav>
