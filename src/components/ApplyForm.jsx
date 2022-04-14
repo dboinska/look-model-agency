@@ -10,7 +10,7 @@ import DragAndDrop from './DragAndDrop';
 import { SignUpSchema } from './ValidationForm';
 import Paragraph from './Paragraph';
 import { AiOutlineCheck } from 'react-icons/ai';
-import { useLocalStorageState } from './hookLocalStorage';
+import { useLocalStorageState } from '../hooks/localStorage';
 
 const LOCAL_STORAGE_KEY = 'customLocalStorageKey';
 const INITIAL_VALUES = {
