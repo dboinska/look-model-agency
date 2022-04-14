@@ -1,16 +1,19 @@
 import { useState, useRef, useLayoutEffect } from 'react';
 import styled, { css } from 'styled-components/macro';
-import { links } from '../data/routes';
 import Logo from './Logo';
 import MenuButton from './MenuButton';
+import Orchestration from './Orchestration';
+import { useMediaQuery } from '../hooks/useMediaQuery';
+
+import { links } from '../data/routes';
 
 const Navbar = ({ socialIcons: SocialIcons }) => {
   const [showLinks, setShowLinks] = useState(false);
   const [windowSize, setWindowSize] = useState(() => window?.innerWidth || 0);
 
   const linksContainerRef = useRef(null);
-  const linksRef = useRef(null);
   const [colorChange, setColorchange] = useState(false);
+  const isSmall = useMediaQuery('(max-width: 992px)');
 
   useLayoutEffect(() => {
     const changeNavbarColor = () => {
@@ -29,7 +32,6 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
     window.addEventListener('resize', size);
 
     if (showLinks) {
-      console.log(linksContainerRef);
       linksContainerRef.current.style.height = '100vh';
 
       linksContainerRef.current.style.background = 'var(--main-color)';
@@ -41,7 +43,7 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
     }
 
     if (windowSize > 1199) {
-      setShowLinks(false);
+      setShowLinks(true);
       linksContainerRef.current.style = {
         height: 0,
       };
@@ -65,16 +67,7 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
           </div>
         </NavHeader>
         <LinksContainer ref={linksContainerRef}>
-          <ul className="links" ref={linksRef}>
-            {links.map(link => {
-              const { id, url, text } = link;
-              return (
-                <li key={id}>
-                  <a href={url}>{text}</a>
-                </li>
-              );
-            })}
-          </ul>
+          {showLinks && <Orchestration isSmall={isSmall} links={links} />}
         </LinksContainer>
 
         <SocialIcons />
