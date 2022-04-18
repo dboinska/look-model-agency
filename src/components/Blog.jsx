@@ -4,7 +4,7 @@ import styled from 'styled-components/macro';
 import Heading from './Heading';
 import { SmallButton } from './Button';
 import { H2, H3 } from './Headers';
-import FeatureSection from './FeatureSection';
+import { FeatureSectionMotion } from './FeatureSection';
 import FilterButton from './FilterButton';
 import Container from './Container';
 import SocialIcons from './SocialIcons';
@@ -26,7 +26,7 @@ const Blog = ({ posts }) => {
   };
 
   return (
-    <FeatureSection flexDirection="row" flexWrap="wrap">
+    <FeatureSectionMotion direction="row" wrap="wrap">
       <Container>
         <div className="div__top">
           <Heading heading="Blog">
@@ -77,7 +77,7 @@ const Blog = ({ posts }) => {
           </ContainerBlog>
         )
       )}
-    </FeatureSection>
+    </FeatureSectionMotion>
   );
 };
 

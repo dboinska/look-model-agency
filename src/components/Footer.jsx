@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import FeatureSection from './FeatureSection';
+import { FeatureSectionMotion } from './FeatureSection';
 import { H3 } from './Headers';
 import Logo from './Logo';
 import Paragraph from './Paragraph';
@@ -13,14 +13,14 @@ const Footer = ({ socialIcons: SocialIcons }) => {
   const news = blog.slice(0, 2);
   return (
     <>
-      <FeatureSection
+      <FeatureSectionMotion
         variant="dark"
-        flexWrap="wrap"
-        flexDirection="row"
+        wrap="wrap"
+        direction="row"
         margin="0"
         padding="0 4rem"
-        backgroundColor="var(--dark-gray)"
-        backgroundImage="url(./photos/model2.png)"
+        color="var(--dark-gray)"
+        image="url(./photos/model2.png)"
       >
         <Container>
           <Logo variant="light" />
@@ -80,7 +80,7 @@ const Footer = ({ socialIcons: SocialIcons }) => {
           </FormNewsletter>
           <SocialIcons />
         </Container>
-      </FeatureSection>
+      </FeatureSectionMotion>
       <ColumnSection
         backgroundColor="var(--black)"
         color="var(--white)"

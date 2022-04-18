@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import Hero from './Hero';
 import heroPhoto from '../photos/heroPhoto.png';
