@@ -1,8 +1,8 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import FeatureSection from './FeatureSection';
+import { FeatureSectionMotion } from './FeatureSection';
 import Heading from './Heading';
 import { H2 } from './Headers';
 import styled, { css } from 'styled-components/macro';
@@ -58,7 +58,7 @@ export const FormValidationSchema = () => {
   };
 
   return (
-    <FeatureSection flexDirection="column">
+    <FeatureSectionMotion direction="column">
       <Heading heading="Application Form">
         <H2>Let's fill in the form!</H2>
       </Heading>
@@ -388,7 +388,7 @@ export const FormValidationSchema = () => {
           )}
         </Formik>
       </FormApply>
-    </FeatureSection>
+    </FeatureSectionMotion>
   );
 };
 

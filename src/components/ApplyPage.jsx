@@ -1,8 +1,12 @@
-import Navbar from './Navbar';
 import Hero from './Hero';
 import heroPhoto from '../photos/applyModel2.png';
-import Footer from './Footer';
-import FeatureSection from './FeatureSection';
+import {
+  FeatureSectionMotion,
+  DivImg,
+  DivTxt,
+  cardVariantsRight,
+  cardVariantsLeft,
+} from './FeatureSection';
 import Heading from './Heading';
 import { H2 } from './Headers';
 import Paragraph from './Paragraph';
@@ -11,11 +15,11 @@ import { ourRequirements } from '../data/ourRequirements';
 import modelB from '../photos/modelB.jpg';
 import modelS from '../photos/modelS.jpg';
 import { FormValidationSchema } from './ApplyForm';
+import Layout from './Layout';
 
 const ApplyPage = () => {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <Hero
         imageUrl={heroPhoto}
         subHeading="get to know us &"
@@ -24,8 +28,12 @@ const ApplyPage = () => {
         link="\"
         linkLabel="Read More"
       ></Hero>
-      <FeatureSection>
-        <div className="div__txt">
+      <FeatureSectionMotion
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.5 }}
+      >
+        <DivTxt variants={cardVariantsLeft}>
           <Heading heading="requirements">
             <H2>Become an elite model</H2>
           </Heading>
@@ -38,17 +46,16 @@ const ApplyPage = () => {
           <Paragraph>
             We reserve the right to contact selected persons.
           </Paragraph>
-        </div>
-        <div className="div__img">
+        </DivTxt>
+        <DivImg variants={cardVariantsRight}>
           <picture>
             <source media="(min-width:577px)" srcSet={modelB} />
             <img src={modelS} alt="model with afro hair" />
           </picture>
-        </div>
-      </FeatureSection>
+        </DivImg>
+      </FeatureSectionMotion>
       <FormValidationSchema />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 export default ApplyPage;
