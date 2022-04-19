@@ -69,7 +69,7 @@ const HomePage = () => {
           </DivImg>
         </FeatureSectionMotion>
         <Portfolio>
-          <PortfolioPhotos photos={portfolioPhotos}></PortfolioPhotos>
+          <PortfolioPhotos photos={portfolioPhotos} limit={9}></PortfolioPhotos>
         </Portfolio>
 
         <FeatureSectionMotion

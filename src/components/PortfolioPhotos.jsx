@@ -5,15 +5,16 @@ import PortfolioPhoto from './PortfolioPhoto';
 import Heading from './Heading';
 import { H2 } from './Headers';
 import FilterButton from './FilterButton';
-import Button from './Button';
+import { MyLinkLight } from './MyLink';
 
-const PortfolioPhotos = ({ photos }) => {
+const PortfolioPhotos = ({ photos, limit }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const photoCategories = photos.map(photo => photo.category);
   const categories = Array.from(new Set(photoCategories));
   categories.unshift('all');
 
-  const [filteredPhotos, setFilteredPhotos] = useState(photos);
+  const reducedPhotos = limit && limit > 0 ? photos.slice(0, limit) : photos;
+  const [filteredPhotos, setFilteredPhotos] = useState(reducedPhotos);
 
   const handleSelectCategory = category => {
     setSelectedCategory(category);
@@ -21,7 +22,9 @@ const PortfolioPhotos = ({ photos }) => {
       category === 'all'
         ? photos
         : photos.filter(photo => photo.category === category);
-    setFilteredPhotos(selectedPhotos);
+    const reducedSelectedPhotos =
+      limit && limit > 0 ? selectedPhotos.slice(0, limit) : selectedPhotos;
+    setFilteredPhotos(reducedSelectedPhotos);
   };
   return (
     <PortfolioImages>
@@ -46,7 +49,11 @@ const PortfolioPhotos = ({ photos }) => {
       ))}
 
       <PortfolioImg>
-        <Button>Load more works</Button>
+        {' '}
+        <MyLinkLight to="/gallery">Load more works</MyLinkLight>
+        {/* <Button>
+          <MyLink to="/gallery">Load more works</MyLink>
+        </Button> */}
       </PortfolioImg>
     </PortfolioImages>
   );
@@ -68,7 +75,7 @@ const PortfolioImages = styled.div`
   }
 `;
 
-const PortfolioImg = styled.div`
+export const PortfolioImg = styled.div`
   width: 50%;
   &:not(:first-of-type) {
     aspect-ratio: 1/1;

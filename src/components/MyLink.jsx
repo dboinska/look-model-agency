@@ -24,4 +24,28 @@ const MyLink = styled(Link)`
   }
 `;
 
+export const MyLinkLight = styled(Link)`
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gray);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  transition: all 0.3s ease;
+  border: none;
+
+  &:before {
+    content: '';
+    background-color: var(--main-color);
+    font-weight: 700;
+    width: 4px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    color: var(--main-color);
+    transition: all 0.3s ease;
+  }
+`;
 export default MyLink;

@@ -1,9 +1,10 @@
 import Hero from './Hero';
 import heroPhoto from '../photos/applyModel2.png';
+import Layout from './Layout';
 
 const NotFoundPage = () => {
   return (
-    <>
+    <Layout>
       <Hero
         imageUrl={heroPhoto}
         subHeading="page not found"
@@ -12,7 +13,7 @@ const NotFoundPage = () => {
         link="\"
         linkLabel="back to main page"
       ></Hero>
-    </>
+    </Layout>
   );
 };
 export default NotFoundPage;
