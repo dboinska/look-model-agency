@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
+import GalleryPage from './GalleryPage';
 import { HelmetProvider } from 'react-helmet-async';
 import { createGlobalStyle } from 'styled-components/macro';
 
@@ -30,8 +31,9 @@ function App() {
             </>
           }
         />
-        <Route path="/gallery" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/apply" element={<ApplyPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </HelmetProvider>
