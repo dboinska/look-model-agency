@@ -72,6 +72,7 @@ const PortfolioImages = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
+  overflow: hidden;
 
   &:first-child,
   &:last-child {
@@ -103,7 +104,8 @@ export const PortfolioImg = styled.div`
     align-items: center;
     margin: 0 0 0 auto;
   }
-  &:hover {
+  &:hover:not(:first-of-type),
+  &:hover:not(:last-of-type) {
     scale: 1.01;
   }
 

@@ -9,7 +9,7 @@ export const portfolioPhotos = [
     category: 'studio',
   },
   {
-    id: v5('portfolio-photo20', MY_NAMESPACE),
+    id: v5('portfolio-photo2', MY_NAMESPACE),
     imgBigSize: './photos/bluePink2BigSize.jpg',
     imgSmallSize: './photos/bluePink2SmallSize.jpg',
     title: 'Model on the illuminated stairs',
@@ -126,5 +126,26 @@ export const portfolioPhotos = [
     imgSmallSize: './photos/lightsSmallSize.jpg',
     title: 'Model',
     category: 'studio',
+  },
+  {
+    id: v5('portfolio-photo19', MY_NAMESPACE),
+    imgBigSize: './photos/blondProfileBigSize.jpg',
+    imgSmallSize: './photos/blondProfileSmallSize.jpg',
+    title: 'profile of a blond model',
+    category: 'studio',
+  },
+  {
+    id: v5('portfolio-photo20', MY_NAMESPACE),
+    imgBigSize: './photos/bluePink2BigSize.jpg',
+    imgSmallSize: './photos/bluePink2SmallSize.jpg',
+    title: 'Model on the illuminated stairs',
+    category: 'session',
+  },
+  {
+    id: v5('portfolio-photo21', MY_NAMESPACE),
+    imgBigSize: './photos/brownHairBigSize.jpg',
+    imgSmallSize: './photos/brownHairSmallSize.jpg',
+    title: 'Model in white top',
+    category: 'fashion',
   },
 ];

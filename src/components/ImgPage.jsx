@@ -1,5 +1,6 @@
+import { useState, useLayoutEffect } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { MyLinkLight } from './MyLink';
 import Layout from './Layout';
 import { Portfolio } from './GalleryPage';
@@ -7,23 +8,46 @@ import { FeatureSectionMotion } from './FeatureSection';
 import {
   DivTxt,
   DivImg,
-  // FeatureSectionMotion,
   cardVariantsRight,
   cardVariantsLeft,
 } from './FeatureSection';
+import Modal from './Modal';
 
 import Paragraph from './Paragraph';
 import { H2, H3 } from './Headers';
 import Heading from './Heading';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
 
+import { IoCloseOutline } from 'react-icons/io5';
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+// import { motion, AnimatePresence } from 'framer-motion';
+
 const ImgPage = () => {
   const { id } = useParams();
   const portfolioPhoto = portfolioPhotos.find(photo => photo.id === id);
-  console.log(portfolioPhoto);
-  const imageClick = () => {
-    console.log('Click!!!!');
+  const photoIndex = portfolioPhotos.findIndex(photo => photo.id === id);
+  const lastIndex = portfolioPhotos.length - 1;
+  const prevPhoto =
+    portfolioPhotos[photoIndex > 0 ? photoIndex - 1 : lastIndex];
+  const nextPhoto =
+    portfolioPhotos[photoIndex < lastIndex ? photoIndex + 1 : 0];
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  useLayoutEffect(() => {
+    if (isOpen) {
+      window.scrollTo(0, 0);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.body.style = {};
+    };
+  }, [isOpen]);
+
+  const handleOnClose = () => {
+    setIsOpen(false);
   };
+
   return (
     <Layout>
       <Portfolio>
@@ -48,7 +72,7 @@ const ImgPage = () => {
             <MyLinkLight to="/gallery">Back to gallery </MyLinkLight>
           </DivTxt>
           <DivImg variants={cardVariantsLeft} className="onBig--order1">
-            <picture onClick={imageClick}>
+            <picture onClick={() => setIsOpen(currentState => !currentState)}>
               <source
                 media="(min-width:577px)"
                 srcSet={`.${portfolioPhoto.imgBigSize}`}
@@ -58,6 +82,35 @@ const ImgPage = () => {
                 alt={`.${portfolioPhoto.title}`}
               />
             </picture>
+            {isOpen && (
+              <Modal onClose={handleOnClose}>
+                <div className="modalContainer">
+                  <Link to={`/gallery/${prevPhoto.id}`}>
+                    <MdKeyboardArrowLeft className="modalArrow" />
+                  </Link>
+
+                  <div className="closeModalBtn">
+                    <button onClick={handleOnClose}>
+                      <IoCloseOutline />
+                    </button>
+                  </div>
+                  <picture>
+                    <source
+                      media="(min-width:577px)"
+                      srcSet={`.${portfolioPhoto.imgBigSize}`}
+                    />
+                    <img
+                      src={`.${portfolioPhoto.imgSmallSize}`}
+                      alt={portfolioPhoto.title}
+                    />
+                  </picture>
+
+                  <Link to={`/gallery/${nextPhoto.id}`}>
+                    <MdKeyboardArrowRight className="modalArrow" />
+                  </Link>
+                </div>
+              </Modal>
+            )}
           </DivImg>
         </FeatureSectionMotion>
       </Portfolio>
