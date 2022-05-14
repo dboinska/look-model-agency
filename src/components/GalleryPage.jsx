@@ -22,7 +22,7 @@ const GalleryPage = () => {
   );
 };
 
-const Portfolio = styled.section`
+export const Portfolio = styled.section`
   margin: 0;
   padding: 0;
   padding-top: 100px;

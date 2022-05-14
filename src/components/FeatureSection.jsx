@@ -126,10 +126,13 @@ export const FeatureSectionMotion = styled(motion.section)`
 
   @media screen and (min-width: 992px) {
     flex-direction: ${props => props.direction || 'row'};
+    align-items: center;
     flex-wrap: nowrap;
     padding: ${props => props.padding || '2rem 4rem'};
     margin: ${props => props.margin || '2.5rem 0'};
     margin: 0 auto;
+    height: ${props => props.height || 'auto'};
+    min-height: ${props => props.min_height || 'auto'};
 
     picture {
       margin-top: 0;

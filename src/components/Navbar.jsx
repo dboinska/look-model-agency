@@ -84,7 +84,7 @@ const links_wrapper = css`
 `;
 
 const FloatMenu = styled.div`
-  background-color: transparent;
+  background-color: ${props => props.background || 'transparent'};
   position: fixed;
   width: 100%;
   top: 0;

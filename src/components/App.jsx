@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import GalleryPage from './GalleryPage';
+import ImgPage from './ImgPage';
 import { HelmetProvider } from 'react-helmet-async';
 import { createGlobalStyle } from 'styled-components/macro';
 
@@ -14,28 +15,33 @@ import Navbar from './Navbar';
 import TestimonialsPage from './TestimonialsPage';
 import ApplyPage from './ApplyPage';
 import Footer from './Footer';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
     <HelmetProvider>
       <GlobalStyles />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/testimonials"
-          element={
-            <>
-              <Navbar />
-              <TestimonialsPage />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/apply" element={<ApplyPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <AnimatePresence exitBeforeEnter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/testimonials"
+            element={
+              <>
+                <Navbar />
+                <TestimonialsPage />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/apply" element={<ApplyPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+
+          <Route path="gallery/:id" element={<ImgPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </AnimatePresence>
     </HelmetProvider>
   );
 }

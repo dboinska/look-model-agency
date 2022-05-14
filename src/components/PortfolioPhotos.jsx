@@ -7,6 +7,8 @@ import { H2 } from './Headers';
 import FilterButton from './FilterButton';
 import { MyLinkLight } from './MyLink';
 
+import { Link } from 'react-router-dom';
+
 const PortfolioPhotos = ({ photos, limit }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const photoCategories = photos.map(photo => photo.category);
@@ -44,12 +46,13 @@ const PortfolioPhotos = ({ photos, limit }) => {
       </PortfolioImg>
       {filteredPhotos.map(({ id, imgSmallSize, title }) => (
         <PortfolioImg className="portfolio__img" key={id}>
-          <PortfolioPhoto img={imgSmallSize} alt={title} />
+          <Link to={`/gallery/${id}`}>
+            <PortfolioPhoto img={imgSmallSize} alt={title} />
+          </Link>
         </PortfolioImg>
       ))}
 
       <PortfolioImg>
-        {' '}
         <MyLinkLight to="/gallery">Load more works</MyLinkLight>
         {/* <Button>
           <MyLink to="/gallery">Load more works</MyLink>
@@ -68,6 +71,7 @@ const PortfolioImages = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: left;
+  overflow: hidden;
 
   &:first-child,
   &:last-child {
@@ -77,6 +81,8 @@ const PortfolioImages = styled.div`
 
 export const PortfolioImg = styled.div`
   width: 50%;
+  translate: all 0.3 ease;
+
   &:not(:first-of-type) {
     aspect-ratio: 1/1;
   }
@@ -97,6 +103,9 @@ export const PortfolioImg = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 0 0 auto;
+  }
+  &:hover:not(:first-of-type):not(:last-of-type) {
+    scale: 1.01;
   }
 
   @media screen and (min-width: 992px) {
