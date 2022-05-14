@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import GalleryPage from './GalleryPage';
@@ -21,27 +21,27 @@ function App() {
   return (
     <HelmetProvider>
       <GlobalStyles />
-      {/* <AnimatePresence exitBeforeEnter> */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/testimonials"
-          element={
-            <>
-              <Navbar />
-              <TestimonialsPage />
-              <Footer />
-            </>
-          }
-        />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/apply" element={<ApplyPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+      <AnimatePresence exitBeforeEnter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/testimonials"
+            element={
+              <>
+                <Navbar />
+                <TestimonialsPage />
+                <Footer />
+              </>
+            }
+          />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/apply" element={<ApplyPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
 
-        <Route path="gallery/:id" element={<ImgPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      {/* </AnimatePresence> */}
+          <Route path="gallery/:id" element={<ImgPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </AnimatePresence>
     </HelmetProvider>
   );
 }

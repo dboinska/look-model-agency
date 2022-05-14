@@ -50,7 +50,7 @@ const ImgPage = () => {
 
   return (
     <motion.div
-      key={id}
+      key={isOpen}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -78,6 +78,7 @@ const ImgPage = () => {
               </FeatureParagraph>
               <MyLinkLight to="/gallery">Back to gallery </MyLinkLight>
             </DivTxt>
+
             <DivImg variants={cardVariantsLeft} className="onBig--order1">
               <picture onClick={() => setIsOpen(currentState => !currentState)}>
                 <source
@@ -89,37 +90,46 @@ const ImgPage = () => {
                   alt={`.${portfolioPhoto.title}`}
                 />
               </picture>
-              <AnimatePresence>
-                {isOpen && (
-                  <Modal onClose={handleOnClose}>
+              {isOpen && (
+                <Modal onClose={handleOnClose}>
+                  <AnimatePresence exitBeforeEnter>
                     <div className="modalContainer">
-                      <Link to={`/gallery/${prevPhoto.id}`}>
-                        <MdKeyboardArrowLeft className="modalArrow" />
-                      </Link>
+                      <motion.div
+                        key={id}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.7 }}
+                        src={`.${portfolioPhoto.imgSmallSize}`}
+                        alt={portfolioPhoto.title}
+                      >
+                        <Link to={`/gallery/${prevPhoto.id}`}>
+                          <MdKeyboardArrowLeft className="modalArrow" />
+                        </Link>
+                        <div className="closeModalBtn">
+                          <button onClick={handleOnClose}>
+                            <IoCloseOutline />
+                          </button>
+                        </div>
+                        <picture>
+                          <source
+                            media="(min-width:577px)"
+                            srcSet={`.${portfolioPhoto.imgBigSize}`}
+                          />
+                          <img
+                            src={`.${portfolioPhoto.imgSmallSize}`}
+                            alt={portfolioPhoto.title}
+                          />
+                        </picture>
 
-                      <div className="closeModalBtn">
-                        <button onClick={handleOnClose}>
-                          <IoCloseOutline />
-                        </button>
-                      </div>
-                      <picture>
-                        <source
-                          media="(min-width:577px)"
-                          srcSet={`.${portfolioPhoto.imgBigSize}`}
-                        />
-                        <motion.img
-                          src={`.${portfolioPhoto.imgSmallSize}`}
-                          alt={portfolioPhoto.title}
-                        />
-                      </picture>
-
-                      <Link to={`/gallery/${nextPhoto.id}`}>
-                        <MdKeyboardArrowRight className="modalArrow" />
-                      </Link>
+                        <Link to={`/gallery/${nextPhoto.id}`}>
+                          <MdKeyboardArrowRight className="modalArrow" />
+                        </Link>
+                      </motion.div>
                     </div>
-                  </Modal>
-                )}
-              </AnimatePresence>
+                  </AnimatePresence>
+                </Modal>
+              )}
             </DivImg>
           </FeatureSectionMotion>
         </Portfolio>
