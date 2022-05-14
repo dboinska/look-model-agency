@@ -53,7 +53,6 @@ const PortfolioPhotos = ({ photos, limit }) => {
       ))}
 
       <PortfolioImg>
-        {' '}
         <MyLinkLight to="/gallery">Load more works</MyLinkLight>
         {/* <Button>
           <MyLink to="/gallery">Load more works</MyLink>
@@ -83,6 +82,7 @@ const PortfolioImages = styled.div`
 export const PortfolioImg = styled.div`
   width: 50%;
   translate: all 0.3 ease;
+
   &:not(:first-of-type) {
     aspect-ratio: 1/1;
   }
@@ -104,8 +104,7 @@ export const PortfolioImg = styled.div`
     align-items: center;
     margin: 0 0 0 auto;
   }
-  &:hover:not(:first-of-type),
-  &:hover:not(:last-of-type) {
+  &:hover:not(:first-of-type):not(:last-of-type) {
     scale: 1.01;
   }
 

@@ -1,15 +1,22 @@
 import { Portal } from 'react-portal';
 import styled from 'styled-components/macro';
+import { motion } from 'framer-motion';
 
 const Modal = ({ children }) => {
   return (
     <Portal>
-      <StyledModal>{children}</StyledModal>
+      <StyledModal
+        initial={{ opacity: 0, scale: 0.75 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0 }}
+      >
+        {children}
+      </StyledModal>
     </Portal>
   );
 };
 
-const StyledModal = styled.div`
+const StyledModal = styled(motion.div)`
   position: absolute;
   top: 0;
   background-color: var(--white);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import HomePage from './HomePage';
 import NotFoundPage from './NotFoundPage';
 import GalleryPage from './GalleryPage';
@@ -15,11 +15,13 @@ import Navbar from './Navbar';
 import TestimonialsPage from './TestimonialsPage';
 import ApplyPage from './ApplyPage';
 import Footer from './Footer';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
     <HelmetProvider>
       <GlobalStyles />
+      {/* <AnimatePresence exitBeforeEnter> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -39,6 +41,7 @@ function App() {
         <Route path="gallery/:id" element={<ImgPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      {/* </AnimatePresence> */}
     </HelmetProvider>
   );
 }
