@@ -102,6 +102,9 @@ export const FeatureSectionMotion = styled(motion.section)`
     props.variant === 'dark' ? 'var(--medium-gray)' : 'var(--black)'};
   background-color: ${props =>
     props.variant === 'dark' ? 'var(--dark-gray)' : 'transparent'};
+  #map {
+    height: 400px;
+  }
 
   .div__img {
     display: flex;
@@ -113,7 +116,7 @@ export const FeatureSectionMotion = styled(motion.section)`
 
     img {
       object-fit: contain;
-      width: 100%;
+      width: ${props => props.imgwidth || '100%'};
     }
   }
 
@@ -164,8 +167,11 @@ export const FeatureSectionMotion = styled(motion.section)`
 export const DivImg = styled(motion.div)`
   display: flex;
   justify-content: center;
+  /* background-color: ${props => props.colorx || 'transparent'}; */
+
   @media screen and (min-width: 992px) {
-    width: 40%;
+    width: ${props => props.width || '40%'};
+    /* width: 40%; */
 
     &.column {
       flex-direction: column;
@@ -174,6 +180,7 @@ export const DivImg = styled(motion.div)`
 `;
 
 export const DivTxt = styled(motion.div)`
+  padding: ${props => props.padding || 'auto'};
   @media screen and (min-width: 992px) {
     width: 60%;
     padding-right: 2rem;

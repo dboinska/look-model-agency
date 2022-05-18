@@ -1,11 +1,12 @@
 import Hero from './Hero';
-import heroPhoto from '../photos/applyModel2.png';
+import heroPhoto from '../photos/notFoundPage.png';
 import Layout from './Layout';
 
 const NotFoundPage = () => {
   return (
     <Layout>
       <Hero
+        backgroundColor="var(--salmon)"
         imageUrl={heroPhoto}
         subHeading="page not found"
         heading="Error 404"

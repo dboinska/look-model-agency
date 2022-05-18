@@ -164,7 +164,7 @@ const LinksContainer = styled.div`
       transition: var(--transition);
 
       &:hover {
-        color: var(--white);
+        color: var(--gray);
       }
     }
     li {

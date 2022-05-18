@@ -14,6 +14,8 @@ import 'sanitize.css/typography.css';
 import Navbar from './Navbar';
 import TestimonialsPage from './TestimonialsPage';
 import ApplyPage from './ApplyPage';
+import ContactPage from './ContactPage';
+import LocationPage from './LocationPage';
 import Footer from './Footer';
 import { AnimatePresence } from 'framer-motion';
 
@@ -37,6 +39,9 @@ function App() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/apply" element={<ApplyPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="contact/:location" element={<LocationPage />} />
+          <Route path="/appointment" element={<ApplyPage />} />
 
           <Route path="gallery/:id" element={<ImgPage />} />
           <Route path="*" element={<NotFoundPage />} />

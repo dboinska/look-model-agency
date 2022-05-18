@@ -11,6 +11,8 @@ const Hero = ({
   style,
   ...rest
 }) => {
+  const hasImage = Boolean(imageUrl);
+
   return (
     <HeroSection className="main" {...rest}>
       <div className="main__mainText">
@@ -19,9 +21,11 @@ const Hero = ({
         <Paragraph>{description}</Paragraph>
         <MyLink to={link}>{linkLabel}</MyLink>
       </div>
-      <HeroPhoto>
-        <img src={imageUrl} alt=""></img>
-      </HeroPhoto>
+      {hasImage && (
+        <HeroPhoto>
+          <img src={imageUrl} alt=""></img>
+        </HeroPhoto>
+      )}
     </HeroSection>
   );
 };
@@ -41,14 +45,18 @@ const HeroSection = styled.div`
     text-transform: uppercase;
     /* padding: 380px 20px 20px 20px;
     min-height: 100vh; */
+    max-width: 80%;
+
     padding: 0 2rem;
   }
 
   @media screen and (min-width: 1200px) {
     flex-direction: ${props => props.flexDirection || 'row-reverse'};
     .main__mainText {
-      margin: 50px 100px 0 0;
-      width: 60%;
+      /* margin: 0 auto; */
+
+      margin: ${props => props.margin || '50px 100px 0 0'};
+      /* width: 60%; */
       padding: ${props => props.padding || '0'};
     }
   }
@@ -120,7 +128,7 @@ const HeroPhoto = styled.figure`
   justify-content: center;
   width: 230px;
   height: 290px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   & img {
     height: 100%;
     object-fit: cover;

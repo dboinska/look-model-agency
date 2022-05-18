@@ -277,7 +277,6 @@ export const FormValidationSchema = () => {
               </RequireContainer>
               <RequireContainer>
                 <FieldContainer>
-                  {' '}
                   <Label htmlFor="chestWidth">Chest Width (cm)</Label>
                   <Field
                     id="chestWidth"
@@ -472,8 +471,7 @@ const FormApply = styled.div`
     color: var(--white);
     font-size: 1rem;
     text-decoration: none;
-    transform: var(--transition);
-    transition: all 0.3s ease;
+    transition: var(--transition);
 
     &:hover {
       background-color: var(--second-color);
