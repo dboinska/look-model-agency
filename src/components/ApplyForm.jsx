@@ -486,7 +486,7 @@ const FormApply = styled.div`
   }
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   ${fontSize};
   text-transform: uppercase;
   color: var(--black);

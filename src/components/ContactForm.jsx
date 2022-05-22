@@ -11,6 +11,8 @@ import { ContactSchema } from './ValidationContactForm';
 
 import { AiOutlineCheck } from 'react-icons/ai';
 
+import { Label } from './ApplyForm';
+
 const LOCAL_STORAGE_KEY = 'contactFormLocalStorageKey';
 const INITIAL_VALUES = {
   name: '',
@@ -26,7 +28,7 @@ export const FormValidationSchema = () => {
   });
 
   return (
-    <FeatureSectionMotion direction="column">
+    <FeatureSectionMotion direction="column" alignItems="left">
       <Heading heading="Contact Form">
         <H2>Write to us!</H2>
       </Heading>
@@ -169,13 +171,30 @@ const FormContact = styled.div`
     ${fontSize};
   }
 
-  input {
+  /* input {
     border: none;
     border-bottom: 2px solid var(--second-color);
     text-align: right;
     padding-right: 1rem;
     width: 200px;
     ${fontSize};
+
+    @media screen and (min-width: 564px) {
+      width: 230px;
+    }
+  } */
+  input {
+    border: none;
+    border-bottom: 2px solid var(--second-color);
+    text-align: right;
+    padding-right: 1rem;
+    width: 120px;
+    ${fontSize};
+
+    &[type='checkbox'] {
+      width: auto;
+      margin: 1rem 1rem 1rem 0;
+    }
 
     @media screen and (min-width: 564px) {
       width: 230px;
@@ -211,30 +230,28 @@ const FormContact = styled.div`
   }
 `;
 
-const Label = styled.label`
-  ${fontSize};
-  text-transform: uppercase;
-  color: var(--black);
-  width: ${props => props.width || '160px'};
+// const Label = styled.label`
+//   ${fontSize};
+//   text-transform: uppercase;
+//   color: var(--black);
+//   width: ${props => props.width || '160px'};
 
-  @media screen and (min-width: 564px) {
-    width: 200px;
-    padding: 0 1rem;
-    font-size: 1rem;
-    max-width: 120px;
-  }
-  @media screen and (min-width: 1000px) {
-    width: 180px;
-  }
-`;
+//   @media screen and (min-width: 564px) {
+//     width: 180px;
+//     padding: 0 1rem;
+//     font-size: 1rem;
+//     max-width: 120px;
+//   }
+// `;
 
 const RequireContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   /* max-width: 500px; */
   margin: 0 auto;
+
   @media screen and (min-width: 820px) {
-    max-width: 90%;
+    /* max-width: 90%; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -244,9 +261,15 @@ const RequireContainer = styled.div`
 const FieldContainer = styled.div`
   display: flex;
   justify-content: left;
-  width: 100%;
-  min-width: 500px;
+  width: 80%;
+  min-width: 300px;
   flex-wrap: wrap;
+  margin: 0.4rem 0;
+
+  justify-content: space-between;
+  @media screen and (min-width: 992px) {
+    width: 100%;
+  }
 `;
 const FieldMessage = ({ touched, errors, fieldName }) => (
   <>

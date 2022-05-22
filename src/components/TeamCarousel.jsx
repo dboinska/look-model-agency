@@ -5,6 +5,8 @@ import TeamMember from './TeamMember';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { Link } from 'react-router-dom';
+
 const TeamContainer = styled(Slider)`
   margin: 0 auto 1rem auto;
   display: flex;
@@ -78,12 +80,14 @@ const TeamCarousel = ({ team }) => {
     <div>
       <TeamContainer {...SETTINGS}>
         {team.map(({ id, imgSmallSize, employee, name }) => (
-          <TeamMember
-            key={id}
-            imgSmallSize={imgSmallSize}
-            employee={employee}
-            name={name}
-          />
+          <Link to={`/models/${id}`}>
+            <TeamMember
+              key={id}
+              imgSmallSize={imgSmallSize}
+              employee={employee}
+              name={name}
+            />
+          </Link>
         ))}
       </TeamContainer>
     </div>

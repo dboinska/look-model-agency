@@ -10,6 +10,8 @@ import Heading from './Heading';
 import { H2 } from './Headers';
 import Layout from './Layout';
 
+import heroPhoto from '../photos/email.png';
+
 import dynamic from 'next/dynamic';
 
 const MapWithNoSSR = dynamic(() => import('./Map'), {
@@ -32,8 +34,9 @@ const ContactPage = () => {
           variants={cardVariantsRight}
         >
           <Hero
+            width="80%"
             margin="0 auto"
-            imageUrl=""
+            padding="2rem"
             subHeading="get in touch &"
             heading="visit us"
             description="Visit us at Jackson Street 567, San Diego, California, United States"

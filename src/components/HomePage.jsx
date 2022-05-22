@@ -13,6 +13,7 @@ import TeamCarousel from './TeamCarousel';
 import MyLink from './MyLink';
 import Blog from './Blog';
 import ColumnSection from './ColumnSection';
+import ModelsTeam from './ModelsTeam';
 import {
   DivTxt,
   DivImg,
@@ -29,7 +30,7 @@ import { portfolioPhotos } from '../data/PortfolioPhotos';
 import { team } from '../data/team';
 import { blog } from '../data/blog';
 
-import TestimonialsPage from './TestimonialsPage';
+import TestimonialsSubpage from './Testimonials';
 
 import HeroCarousel from './HeroCarousel';
 
@@ -98,15 +99,8 @@ const HomePage = () => {
             </picture>
           </DivImg>
         </FeatureSectionMotion>
-        <TestimonialsPage></TestimonialsPage>
-        <ColumnSection>
-          <div className="div__center">
-            <Heading heading="Team" headingPosition="center">
-              <H2 variant="marginNone">Super models</H2>
-            </Heading>
-          </div>
-          <TeamCarousel team={team} />
-        </ColumnSection>
+        <TestimonialsSubpage></TestimonialsSubpage>
+        <ModelsTeam></ModelsTeam>
         <ColumnSection
           backgroundColor="var(--main-color)"
           justifyContent="space-evenly"

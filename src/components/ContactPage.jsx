@@ -8,6 +8,8 @@ import {
 } from './FeatureSection';
 import Layout from './Layout';
 
+import heroPhoto from '../photos/map.png';
+
 import { FormValidationSchema } from './ContactForm';
 
 const ContactPage = () => {
@@ -21,11 +23,13 @@ const ContactPage = () => {
       >
         <DivImg
           colorx="var(--light-gray)"
-          width="auto"
+          // width="80%"
           variants={cardVariantsLeft}
         >
           <Hero
             margin="0 auto"
+            padding="2rem"
+            width="80%"
             imageUrl=""
             subHeading="get in touch &"
             heading="contact us"
@@ -35,7 +39,7 @@ const ContactPage = () => {
             backgroundColor="var(--light-gray)"
           ></Hero>
         </DivImg>
-        <DivTxt padding="6rem 2rem 2rem 2rem" variants={cardVariantsRight}>
+        <DivTxt margin="4rem 0 0 0" variants={cardVariantsRight}>
           <FormValidationSchema />
         </DivTxt>
       </FeatureSectionMotion>
