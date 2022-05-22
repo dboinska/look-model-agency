@@ -8,8 +8,8 @@ export const links = [
   },
   {
     id: uuidv4(),
-    url: '/pages',
-    text: 'pages',
+    url: '/gallery',
+    text: 'photos',
   },
   {
     id: uuidv4(),

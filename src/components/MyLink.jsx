@@ -9,8 +9,7 @@ const MyLink = styled(Link)`
   color: var(--white);
   font-size: 1rem;
   text-decoration: none;
-  transform: var(--transition);
-  transition: all 0.3s ease;
+  transition: var(--transition);
 
   &:hover {
     background-color: var(--second-color);

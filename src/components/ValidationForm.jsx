@@ -87,6 +87,7 @@ export const SignUpSchema = Yup.object().shape({
     .min(50, 'To Little!')
     .max(88, 'To Much!')
     .required('Required'),
+
   chestWidth: Yup.number()
     .positive()
     .min(60, 'To Little!')
