@@ -59,15 +59,15 @@ export const ModelData = styled.div`
 //   </div>
 // );
 
-export const ModelImg = ({ img, name }) => (
+export const ModelImg = ({ img, title }) => (
   <ModelStyled>
-    <img src={img} alt={name} />
+    <img src={img} alt={title} />
   </ModelStyled>
 );
 
-export const ModelTxt = ({ name, employee }) => (
+export const ModelTxt = ({ title, category }) => (
   <ModelData>
-    <h4>{name}</h4>
-    <span>{employee}</span>
+    <h4>{title}</h4>
+    <span>{category}</span>
   </ModelData>
 );

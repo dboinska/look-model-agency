@@ -13,12 +13,16 @@ const ImgPage = () => {
   const prevPhotoURL = `/models/${prevPhoto.id}`;
   const nextPhotoURL = `/models/${nextPhoto.id}`;
 
+  const featureParagraph =
+    'Donec ac est vel justo cursus rutrum ac eleifend ex.Pellentesque dapibus venenatis enim. Praesent massa libero, porta eu dolor id, tristique rutrum lectus. Sed dapibus, sapien euismod tempus efficitur, sapien velit placerat lectus, eu lobortis enim nulla vel velit. Nulla non.';
+
   return (
     <SinglePage
       currentPhoto={teamPhoto}
       id={id}
       prevPhoto={prevPhotoURL}
       nextPhoto={nextPhotoURL}
+      featureParagraph={featureParagraph}
     />
   );
 };

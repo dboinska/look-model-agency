@@ -95,6 +95,10 @@ export const FeatureSectionMotion = styled(motion.section)`
       order: 2;
     }
   }
+
+  @media screen and (min-width: 992px) {
+    max-width: 1500px;
+  }
 `;
 
 export const DivImg = styled(motion.div)`

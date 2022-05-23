@@ -55,8 +55,9 @@ const HeroSection = styled.div`
     flex-direction: ${props => props.flexDirection || 'row-reverse'};
     .main__mainText {
       /* margin: 0 auto; */
+      max-width: 860px;
 
-      margin: ${props => props.margin || '50px 100px 0 0'};
+      margin: ${props => props.margin || '50px 100px 50px 50px'};
       /* width: 60%; */
       padding: ${props => props.paddingHero || '0'};
       width: ${props => props.width || 'auto'};
@@ -142,7 +143,7 @@ const HeroPhoto = styled.figure`
   @media screen and (min-width: 992px) {
     /* height: 30%; */
     width: 40%;
-    max-width: 500px;
+    max-width: 400px;
 
     /* height: auto;
     margin-bottom: 0;

@@ -11,6 +11,14 @@ import { SignUpSchema } from './ValidationForm';
 import Paragraph from './Paragraph';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { useLocalStorageState } from '../hooks/localStorage';
+import {
+  StyledForm,
+  Label,
+  RequireContainer,
+  FormGrid,
+  FieldMessage,
+  ButtonContainer,
+} from './FormGrid';
 
 const LOCAL_STORAGE_KEY = 'customLocalStorageKey';
 const INITIAL_VALUES = {
@@ -62,7 +70,7 @@ export const FormValidationSchema = () => {
       <Heading heading="Application Form">
         <H2>Let's fill in the form!</H2>
       </Heading>
-      <FormApply>
+      <StyledForm>
         <Formik
           initialValues={initialValues}
           validationSchema={SignUpSchema}
@@ -79,7 +87,7 @@ export const FormValidationSchema = () => {
                 headingPosition="none"
               ></Heading>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="firstName">First Name</Label>
                   <Field id="firstName" name="firstName" placeholder="Jane" />
                   <FieldMessage
@@ -87,8 +95,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="firstName"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="lastName">Last Name</Label>
                   <Field id="lastName" name="lastName" placeholder="Doe" />
                   <FieldMessage
@@ -96,10 +104,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="lastName"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="birthDate">Birth Date</Label>
                   <Field
                     id="birthDate"
@@ -112,8 +120,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="birthDate"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="phoneNumber">Phone Number</Label>
                   <Field
                     id="phoneNumber"
@@ -126,10 +134,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="phoneNumber"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="email">Email</Label>
                   <Field
                     id="email"
@@ -142,9 +150,9 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="email"
                   />
-                </FieldContainer>
+                </FormGrid>
 
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="address">Address</Label>
                   <Field
                     id="address"
@@ -157,10 +165,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="address"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="city">City</Label>
                   <Field
                     id="city"
@@ -173,8 +181,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="city"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="countryCode">Country</Label>
                   <Field
                     id="countryCode"
@@ -187,10 +195,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="countryCode"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="postalCode">Postal code</Label>
                   <Field
                     id="postalCode"
@@ -203,18 +211,18 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="postalCode"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor=""></Label>
                   <Label htmlFor=""></Label>
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <Heading
                 heading="physical details"
                 headingPosition="none"
               ></Heading>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="hairColor">Hair Color</Label>
                   <Field
                     id="hairColor"
@@ -227,8 +235,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="hairColor"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="eyeColor">eye color</Label>
                   <Field name="eyeColor" as="select">
                     <option value={''}>
@@ -242,11 +250,11 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="eyeColor"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
 
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="height">Height (cm)</Label>
                   <Field
                     id="height"
@@ -259,8 +267,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="height"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="weight">Weight (kg)</Label>
                   <Field
                     id="weight"
@@ -273,10 +281,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="weight"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="chestWidth">Chest Width (cm)</Label>
                   <Field
                     id="chestWidth"
@@ -289,9 +297,9 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="chestWidth"
                   />
-                </FieldContainer>
+                </FormGrid>
 
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="waistWidth">Waist Width (cm)</Label>
                   <Field
                     id="waistWidth"
@@ -304,10 +312,10 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="waistWidth"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <RequireContainer>
-                <FieldContainer>
+                <FormGrid>
                   <Label htmlFor="hipWidth">Hip Width (cm)</Label>
                   <Field
                     id="hipWidth"
@@ -320,8 +328,8 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="hipWidth"
                   />
-                </FieldContainer>
-                <FieldContainer>
+                </FormGrid>
+                <FormGrid>
                   <Label htmlFor="shoeSize">shoe Size</Label>
                   <Field
                     id="shoeSize"
@@ -334,19 +342,19 @@ export const FormValidationSchema = () => {
                     errors={errors}
                     fieldName="shoeSize"
                   />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
 
               <Heading heading="your photo" headingPosition="none"></Heading>
               <RequireContainer>
-                <FieldContainer height="auto">
+                <FormGrid>
                   <Label width="200px">Face photo</Label>
                   <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
-                </FieldContainer>
-                <FieldContainer height="auto">
+                </FormGrid>
+                <FormGrid>
                   <Label width="200px">silhouette photo</Label>
                   <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
-                </FieldContainer>
+                </FormGrid>
               </RequireContainer>
               <div className="agreement">
                 <Paragraph>
@@ -386,7 +394,7 @@ export const FormValidationSchema = () => {
             </Form>
           )}
         </Formik>
-      </FormApply>
+      </StyledForm>
     </FeatureSectionMotion>
   );
 };
@@ -398,120 +406,106 @@ const fontSize = css`
   }
 `;
 
-const FormApply = styled.div`
-  font-weight: 600;
-  width: 100%;
-  margin: 0 auto;
+// const FormApply = styled.div`
+//   font-weight: 600;
+//   width: 100%;
+//   margin: 0 auto;
 
-  @media screen and (min-width: 820px) {
-    width: 90%;
-    padding: 1rem;
-  }
+//   @media screen and (min-width: 820px) {
+//     width: 90%;
+//     padding: 1rem;
+//   }
 
-  .agreement {
-    margin: 2rem auto auto auto;
-    font-weight: 400;
-  }
+//   .agreement {
+//     margin: 2rem auto auto auto;
+//     font-weight: 400;
+//   }
 
-  .headingSection {
-    padding: 2rem 2rem 0 2rem;
-  }
+//   .headingSection {
+//     padding: 2rem 2rem 0 2rem;
+//   }
 
-  .errorAnnouncement {
-    color: var(--error-color);
-    ${fontSize};
-  }
+//   .errorAnnouncement {
+//     color: var(--error-color);
+//     ${fontSize};
+//   }
 
-  .successAnnouncement {
-    color: var(--success-color);
-    ${fontSize};
-  }
+//   .successAnnouncement {
+//     color: var(--success-color);
+//     ${fontSize};
+//   }
 
-  input {
-    border: none;
-    border-bottom: 2px solid var(--second-color);
-    text-align: right;
-    padding-right: 1rem;
-    width: 120px;
-    ${fontSize};
+//   input {
+//     border: none;
+//     border-bottom: 2px solid var(--second-color);
+//     text-align: right;
+//     padding-right: 1rem;
+//     width: 120px;
+//     ${fontSize};
 
-    &[type='checkbox'] {
-      width: auto;
-      margin: 1rem 1rem 1rem 0;
-    }
+//     &[type='checkbox'] {
+//       width: auto;
+//       margin: 1rem 1rem 1rem 0;
+//     }
 
-    @media screen and (min-width: 564px) {
-      width: 200px;
-    }
-  }
+//     @media screen and (min-width: 564px) {
+//       width: 200px;
+//     }
+//   }
 
-  select {
-    text-transform: uppercase;
-    border: none;
-    width: 120px;
-    border-bottom: 2px solid var(--second-color);
-    text-align: right;
-    ${fontSize};
-    & option {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
+//   select {
+//     text-transform: uppercase;
+//     border: none;
+//     width: 120px;
+//     border-bottom: 2px solid var(--second-color);
+//     text-align: right;
+//     ${fontSize};
+//     & option {
+//       text-transform: uppercase;
+//       font-size: 0.8rem;
+//     }
 
-    @media screen and (min-width: 820px) {
-      width: 200px;
-    }
-  }
+//     @media screen and (min-width: 820px) {
+//       width: 200px;
+//     }
+//   }
 
-  button[type='submit'] {
-    /* Style z Link */
-    background-color: var(--black);
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 6px 12px;
-    color: var(--white);
-    font-size: 1rem;
-    text-decoration: none;
-    transition: var(--transition);
+//   button[type='submit'] {
+//     /* Style z Link */
+//     background-color: var(--black);
+//     text-transform: uppercase;
+//     font-weight: 500;
+//     padding: 6px 12px;
+//     color: var(--white);
+//     font-size: 1rem;
+//     text-decoration: none;
+//     transition: var(--transition);
 
-    &:hover {
-      background-color: var(--second-color);
-      color: var(--black);
-    }
+//     &:hover {
+//       background-color: var(--second-color);
+//       color: var(--black);
+//     }
 
-    @media screen and (min-width: 820px) {
-      margin-top: 24px;
-      padding: 12px 24px;
-      font-size: 1.2rem;
-    }
-  }
-`;
+//     @media screen and (min-width: 820px) {
+//       margin-top: 24px;
+//       padding: 12px 24px;
+//       font-size: 1.2rem;
+//     }
+//   }
+// `;
 
-export const Label = styled.label`
-  ${fontSize};
-  text-transform: uppercase;
-  color: var(--black);
-  width: ${props => props.width || '160px'};
-
-  @media screen and (min-width: 564px) {
-    width: 200px;
-    padding: 0 1rem;
-    font-size: 1rem;
-    max-width: 220px;
-  }
-`;
-
-const RequireContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 500px;
-  margin: 0 auto;
-  @media screen and (min-width: 820px) {
-    max-width: 90%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
-`;
+// const RequireContainer = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   max-width: 500px;
+//   margin: 0 auto;
+//   @media screen and (min-width: 820px) {
+//     max-width: 90%;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// `;
 
 const Checkbox = ({ label, checked, required = false, onChange }) => {
   return (
@@ -527,26 +521,15 @@ const Checkbox = ({ label, checked, required = false, onChange }) => {
   );
 };
 
-const FieldMessage = ({ touched, errors, fieldName }) => (
-  <>
-    <ErrorMessage name={fieldName}>
-      {msg => <div className="errorAnnouncement">{errors[fieldName]}</div>}
-    </ErrorMessage>
-    {touched[fieldName] && !errors[fieldName] && (
-      <div className="successAnnouncement">
-        <AiOutlineCheck />
-      </div>
-    )}
-  </>
-);
-
-const FieldContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  max-width: 100vw;
-  flex-wrap: wrap;
-  height: ${props => props.height || '30px'};
-  @media screen and (max-width: 820px) {
-    width: 100vw;
-  }
-`;
+// const FieldMessage = ({ touched, errors, fieldName }) => (
+//   <>
+//     <ErrorMessage name={fieldName}>
+//       {msg => <div className="errorAnnouncement">{errors[fieldName]}</div>}
+//     </ErrorMessage>
+//     {touched[fieldName] && !errors[fieldName] && (
+//       <div className="successAnnouncement">
+//         <AiOutlineCheck />
+//       </div>
+//     )}
+//   </>
+// );

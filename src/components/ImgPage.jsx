@@ -15,12 +15,19 @@ const ImgPage = () => {
   const prevPhotoURL = `/gallery/${prevPhoto.id}`;
   const nextPhotoURL = `/gallery/${nextPhoto.id}`;
 
+  const featureParagraph =
+    'Donec ac est vel justo cursus rutrum ac eleifend ex.Pellentesque dapibus venenatis enim. Praesent massa libero, porta eu dolor id, tristique rutrum lectus. Sed dapibus, sapien euismod tempus efficitur, sapien velit placerat lectus, eu lobortis enim nulla vel velit. Nulla non.';
+
+  const header = 'Photo model';
+
   return (
     <SinglePage
       currentPhoto={portfolioPhoto}
       id={id}
       prevPhoto={prevPhotoURL}
       nextPhoto={nextPhotoURL}
+      featureParagraph={featureParagraph}
+      header={header}
     />
   );
 };

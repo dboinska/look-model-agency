@@ -3,7 +3,7 @@ import heroPhoto from '../photos/fashionShow.png';
 import Layout from './Layout';
 import ModelsTeam from './ModelsTeam';
 
-const NotFoundPage = () => {
+const ModelsPage = () => {
   return (
     <Layout>
       <Hero
@@ -19,4 +19,4 @@ const NotFoundPage = () => {
     </Layout>
   );
 };
-export default NotFoundPage;
+export default ModelsPage;

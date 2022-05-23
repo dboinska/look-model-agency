@@ -10,7 +10,7 @@ const NotFoundPage = () => {
         imageUrl={heroPhoto}
         subHeading="page not found"
         heading="Error 404"
-        description="The resource requested could not be found on this server"
+        description="The resource requested could not be found on this server. Please, go back to the home page."
         link="\"
         linkLabel="back to main page"
       ></Hero>

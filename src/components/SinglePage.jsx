@@ -21,7 +21,14 @@ import { IoCloseOutline } from 'react-icons/io5';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import { AnimatePresence, motion } from 'framer-motion';
 
-const SinglePage = ({ id, currentPhoto, prevPhoto, nextPhoto }) => {
+const SinglePage = ({
+  id,
+  currentPhoto,
+  prevPhoto,
+  nextPhoto,
+  featureParagraph,
+  header,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useLayoutEffect(() => {
@@ -63,15 +70,9 @@ const SinglePage = ({ id, currentPhoto, prevPhoto, nextPhoto }) => {
             <DivTxt variants={cardVariantsRight} className="onBig--order2">
               <Heading heading={currentPhoto.category}>
                 <H2 variant="marginNone">{currentPhoto.title}</H2>
-                <H3>Super model</H3>
+                <H3>{header}</H3>
               </Heading>
-              <FeatureParagraph>
-                Donec ac est vel justo cursus rutrum ac eleifend ex.
-                Pellentesque dapibus venenatis enim. Praesent massa libero,
-                porta eu dolor id, tristique rutrum lectus. Sed dapibus, sapien
-                euismod tempus efficitur, sapien velit placerat lectus, eu
-                lobortis enim nulla vel velit. Nulla non.
-              </FeatureParagraph>
+              <FeatureParagraph>{featureParagraph}</FeatureParagraph>
               <MyLinkLight to="/gallery">Back to gallery </MyLinkLight>
             </DivTxt>
 

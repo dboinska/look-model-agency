@@ -17,6 +17,7 @@ const TeamContainer = styled(Slider)`
 
   @media screen and (min-width: 992px) {
     width: 76%;
+    max-width: 1000px;
   }
 `;
 const SETTINGS = {
@@ -79,13 +80,13 @@ const TeamCarousel = ({ team }) => {
   return (
     <div>
       <TeamContainer {...SETTINGS}>
-        {team.map(({ id, imgSmallSize, employee, name }) => (
+        {team.map(({ id, imgSmallSize, category, title }) => (
           <Link to={`/models/${id}`}>
             <TeamMember
               key={id}
               imgSmallSize={imgSmallSize}
-              employee={employee}
-              name={name}
+              category={category}
+              title={title}
             />
           </Link>
         ))}
