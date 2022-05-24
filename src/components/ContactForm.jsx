@@ -1,4 +1,4 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 
 import { FeatureSectionMotion } from './FeatureSection';
 import Heading from './Heading';
@@ -54,7 +54,6 @@ export const FormValidationSchema = () => {
             <Form>
               {console.log(errors)}
               <Heading heading="your message" headingPosition="none"></Heading>
-
               <RequireContainer width="180px">
                 <FormGrid>
                   <Label htmlFor="name">Name</Label>
@@ -100,9 +99,8 @@ export const FormValidationSchema = () => {
                       return (
                         <textarea
                           id="message"
-                          // name="message"
                           rows="4"
-                          cols="21"
+                          cols="14"
                           placeholder="Message"
                           value={field.value}
                           onChange={field.onChange}
@@ -110,7 +108,6 @@ export const FormValidationSchema = () => {
                       );
                     }}
                   </Field>
-                  {/* <Field id="message" name="message" placeholder="message" /> */}
                   <FieldMessage
                     touched={touched}
                     errors={errors}

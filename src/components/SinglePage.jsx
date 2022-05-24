@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MyLinkLight } from './MyLink';
 import Layout from './Layout';
 import { Portfolio } from './GalleryPage';
@@ -20,6 +20,7 @@ import Heading from './Heading';
 import { IoCloseOutline } from 'react-icons/io5';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import { AnimatePresence, motion } from 'framer-motion';
+import GoToTop from './GoToTop';
 
 const SinglePage = ({
   id,
@@ -28,8 +29,35 @@ const SinglePage = ({
   nextPhoto,
   featureParagraph,
   header,
+  link,
+  backTo,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleKeyPress = e => {
+      if (isOpen) {
+        switch (e.key) {
+          case 'ArrowLeft':
+            console.log({ prevPhoto });
+            navigate(prevPhoto);
+            break;
+          case 'ArrowRight':
+            console.log({ nextPhoto });
+            navigate(nextPhoto);
+            break;
+          default:
+            break;
+        }
+      }
+    };
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [nextPhoto, prevPhoto, navigate, isOpen]);
 
   useLayoutEffect(() => {
     if (isOpen) {
@@ -40,12 +68,6 @@ const SinglePage = ({
       document.body.style = {};
     };
   }, [isOpen]);
-
-  //   useEffect(() => {
-  //     return () => {
-  //       setIsOpen({});
-  //     };
-  //   }, []);
 
   const handleOnClose = () => {
     setIsOpen(false);
@@ -59,6 +81,7 @@ const SinglePage = ({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.7 }}
     >
+      <GoToTop />
       <Layout>
         <Portfolio>
           <FeatureSectionMotion
@@ -73,7 +96,7 @@ const SinglePage = ({
                 <H3>{header}</H3>
               </Heading>
               <FeatureParagraph>{featureParagraph}</FeatureParagraph>
-              <MyLinkLight to="/gallery">Back to gallery </MyLinkLight>
+              <MyLinkLight to={link}>Back to {backTo} </MyLinkLight>
             </DivTxt>
 
             <DivImg variants={cardVariantsLeft} className="onBig--order1">

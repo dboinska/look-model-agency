@@ -9,7 +9,6 @@ import List from './List';
 import PortfolioPhotos from './PortfolioPhotos';
 import { H2, H3 } from './Headers';
 import { SmallButton } from './Button';
-import TeamCarousel from './TeamCarousel';
 import MyLink from './MyLink';
 import Blog from './Blog';
 import ColumnSection from './ColumnSection';
@@ -27,7 +26,6 @@ import models2BigSize from '../photos/models2BigSize.jpg';
 
 import { list } from '../data/ListAboutAgency';
 import { portfolioPhotos } from '../data/PortfolioPhotos';
-import { team } from '../data/team';
 import { blog } from '../data/blog';
 
 import TestimonialsSubpage from './Testimonials';

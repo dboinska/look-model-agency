@@ -10,8 +10,6 @@ import Heading from './Heading';
 import { H2 } from './Headers';
 import Layout from './Layout';
 
-import heroPhoto from '../photos/email.png';
-
 import dynamic from 'next/dynamic';
 
 const MapWithNoSSR = dynamic(() => import('./Map'), {
@@ -53,7 +51,6 @@ const ContactPage = () => {
           <Heading heading="Our location">
             <H2>visit us</H2>
           </Heading>
-          {/* <MapWithPlaceholder /> */}
           <div id="map">
             <MapWithNoSSR />
           </div>

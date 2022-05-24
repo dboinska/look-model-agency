@@ -22,14 +22,6 @@ const GalleryPage = () => {
       <Portfolio>
         <PortfolioPhotos photos={portfolioPhotos}></PortfolioPhotos>
       </Portfolio>
-      {/* {portfolioPhotos.map(portfolioPhoto => {
-        const { id, imgSmallSize, title } = portfolioPhoto;
-        return (
-          <PortfolioImg className="portfolio__img" key={id}>
-            <PortfolioPhoto img={imgSmallSize} alt={title} />
-          </PortfolioImg>
-        );
-      })} */}
     </Layout>
   );
 };

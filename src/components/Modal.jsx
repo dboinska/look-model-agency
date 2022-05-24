@@ -36,8 +36,6 @@ const StyledModal = styled(motion.div)`
     min-height: 700px;
   }
 
-  /* } */
-
   img {
     height: calc(100vh - 40px);
     transform: translateX(0);

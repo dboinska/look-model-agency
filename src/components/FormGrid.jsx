@@ -13,9 +13,6 @@ export const FormGrid = styled.div`
   @media screen and (min-width: 992px) {
     max-width: 380px;
   }
-  /* @media screen and (min-width: 1200px) {
-    max-width: 380px;
-  } */
 `;
 
 const fontSize = css`
@@ -153,3 +150,17 @@ export const FieldMessage = ({ touched, errors, fieldName }) => (
     )}
   </>
 );
+
+export const Checkbox = ({ label, checked, required = false, onChange }) => {
+  return (
+    <label>
+      <input
+        type="checkbox"
+        checked={checked}
+        required={required}
+        onChange={onChange}
+      />
+      {label}
+    </label>
+  );
+};

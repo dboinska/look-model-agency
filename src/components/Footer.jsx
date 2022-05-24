@@ -66,12 +66,10 @@ const Footer = ({ socialIcons: SocialIcons }) => {
             Don't forget to subscribe to receive the latest news from us! Fill
             out the form below.{' '}
           </Paragraph>
-          {/* <form action="" method="get" name="newsletter"> */}
           <FormNewsletter>
             <label form="email"> email:</label>
             <div>
               <input type="email" name="email" id="email"></input>
-
               <button type="submit">
                 <MdSend />
               </button>

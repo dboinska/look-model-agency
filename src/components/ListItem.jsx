@@ -1,11 +1,3 @@
-// import '../scss/list.scss';
-
-// const ListItem = ({ children }) => {
-//   return <li>{children}</li>;
-// };
-
-// export default ListItem;
-
 import styled from 'styled-components/macro';
 
 const ListItem = styled.li`

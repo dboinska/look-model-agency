@@ -44,21 +44,14 @@ const HeroSection = styled.div`
     text-align: center;
     margin: 2rem;
     text-transform: uppercase;
-    /* padding: 380px 20px 20px 20px;
-    min-height: 100vh; */
-    /* max-width: 80%; */
-
     padding: 0 2rem;
   }
 
   @media screen and (min-width: 1200px) {
     flex-direction: ${props => props.flexDirection || 'row-reverse'};
     .main__mainText {
-      /* margin: 0 auto; */
       max-width: 860px;
-
       margin: ${props => props.margin || '50px 100px 50px 50px'};
-      /* width: 60%; */
       padding: ${props => props.paddingHero || '0'};
       width: ${props => props.width || 'auto'};
     }
@@ -141,20 +134,8 @@ const HeroPhoto = styled.figure`
   }
 
   @media screen and (min-width: 992px) {
-    /* height: 30%; */
     width: 40%;
     max-width: 400px;
-
-    /* height: auto;
-    margin-bottom: 0;
-    & img {
-      height: 100%;
-      width: auto;
-      display: flex;
-      margin: 0 auto;
-
-      transform: translateY(50px);
-    } */
   }
   @media screen and (min-width: 1200px) {
     max-width: 630px;

@@ -8,8 +8,6 @@ import {
 } from './FeatureSection';
 import Layout from './Layout';
 
-import heroPhoto from '../photos/map.png';
-
 import { FormValidationSchema } from './ContactForm';
 
 const ContactPage = () => {

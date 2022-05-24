@@ -1,15 +1,13 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FeatureSectionMotion } from './FeatureSection';
 import Heading from './Heading';
 import { H2 } from './Headers';
-import styled, { css } from 'styled-components/macro';
 import DragAndDrop from './DragAndDrop';
 import { SignUpSchema } from './ValidationForm';
 import Paragraph from './Paragraph';
-import { AiOutlineCheck } from 'react-icons/ai';
 import { useLocalStorageState } from '../hooks/localStorage';
 import {
   StyledForm,
@@ -17,7 +15,7 @@ import {
   RequireContainer,
   FormGrid,
   FieldMessage,
-  ButtonContainer,
+  Checkbox,
 } from './FormGrid';
 
 const LOCAL_STORAGE_KEY = 'customLocalStorageKey';
@@ -151,7 +149,6 @@ export const FormValidationSchema = () => {
                     fieldName="email"
                   />
                 </FormGrid>
-
                 <FormGrid>
                   <Label htmlFor="address">Address</Label>
                   <Field
@@ -398,138 +395,3 @@ export const FormValidationSchema = () => {
     </FeatureSectionMotion>
   );
 };
-
-const fontSize = css`
-  font-size: 0.8rem;
-  @media screen and (min-width: 820px) {
-    font-size: 1rem;
-  }
-`;
-
-// const FormApply = styled.div`
-//   font-weight: 600;
-//   width: 100%;
-//   margin: 0 auto;
-
-//   @media screen and (min-width: 820px) {
-//     width: 90%;
-//     padding: 1rem;
-//   }
-
-//   .agreement {
-//     margin: 2rem auto auto auto;
-//     font-weight: 400;
-//   }
-
-//   .headingSection {
-//     padding: 2rem 2rem 0 2rem;
-//   }
-
-//   .errorAnnouncement {
-//     color: var(--error-color);
-//     ${fontSize};
-//   }
-
-//   .successAnnouncement {
-//     color: var(--success-color);
-//     ${fontSize};
-//   }
-
-//   input {
-//     border: none;
-//     border-bottom: 2px solid var(--second-color);
-//     text-align: right;
-//     padding-right: 1rem;
-//     width: 120px;
-//     ${fontSize};
-
-//     &[type='checkbox'] {
-//       width: auto;
-//       margin: 1rem 1rem 1rem 0;
-//     }
-
-//     @media screen and (min-width: 564px) {
-//       width: 200px;
-//     }
-//   }
-
-//   select {
-//     text-transform: uppercase;
-//     border: none;
-//     width: 120px;
-//     border-bottom: 2px solid var(--second-color);
-//     text-align: right;
-//     ${fontSize};
-//     & option {
-//       text-transform: uppercase;
-//       font-size: 0.8rem;
-//     }
-
-//     @media screen and (min-width: 820px) {
-//       width: 200px;
-//     }
-//   }
-
-//   button[type='submit'] {
-//     /* Style z Link */
-//     background-color: var(--black);
-//     text-transform: uppercase;
-//     font-weight: 500;
-//     padding: 6px 12px;
-//     color: var(--white);
-//     font-size: 1rem;
-//     text-decoration: none;
-//     transition: var(--transition);
-
-//     &:hover {
-//       background-color: var(--second-color);
-//       color: var(--black);
-//     }
-
-//     @media screen and (min-width: 820px) {
-//       margin-top: 24px;
-//       padding: 12px 24px;
-//       font-size: 1.2rem;
-//     }
-//   }
-// `;
-
-// const RequireContainer = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   max-width: 500px;
-//   margin: 0 auto;
-//   @media screen and (min-width: 820px) {
-//     max-width: 90%;
-//     margin: 0 auto;
-//     display: flex;
-//     justify-content: space-between;
-//   }
-// `;
-
-const Checkbox = ({ label, checked, required = false, onChange }) => {
-  return (
-    <label>
-      <input
-        type="checkbox"
-        checked={checked}
-        required={required}
-        onChange={onChange}
-      />
-      {label}
-    </label>
-  );
-};
-
-// const FieldMessage = ({ touched, errors, fieldName }) => (
-//   <>
-//     <ErrorMessage name={fieldName}>
-//       {msg => <div className="errorAnnouncement">{errors[fieldName]}</div>}
-//     </ErrorMessage>
-//     {touched[fieldName] && !errors[fieldName] && (
-//       <div className="successAnnouncement">
-//         <AiOutlineCheck />
-//       </div>
-//     )}
-//   </>
-// );

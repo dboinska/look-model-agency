@@ -56,8 +56,6 @@ const SETTINGS = {
 };
 
 const Dots = styled.div`
-  /* margin: -1rem; */
-
   position: relative;
   bottom: 0;
 
@@ -69,7 +67,6 @@ const Dots = styled.div`
 const Pagination = styled.div`
   font-size: clamp(0.9rem, 2vw, 1.6rem);
   color: var(--gray);
-  /* margin: 1rem; */
 
   .slick-active & {
     color: var(--black);

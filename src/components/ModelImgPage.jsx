@@ -23,6 +23,8 @@ const ImgPage = () => {
       prevPhoto={prevPhotoURL}
       nextPhoto={nextPhotoURL}
       featureParagraph={featureParagraph}
+      link="/models"
+      backTo="models"
     />
   );
 };

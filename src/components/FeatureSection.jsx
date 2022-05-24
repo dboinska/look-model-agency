@@ -62,7 +62,6 @@ export const FeatureSectionMotion = styled(motion.section)`
 
   @media screen and (min-width: 992px) {
     flex-direction: ${props => props.direction || 'row'};
-    align-items: ${props => props.alignItems || 'center'};
     flex-wrap: nowrap;
     padding: ${props => props.padding || '2rem 4rem'};
     margin: ${props => props.margin || '2.5rem 0'};
@@ -71,7 +70,8 @@ export const FeatureSectionMotion = styled(motion.section)`
     min-height: ${props => props.min_height || 'auto'};
 
     picture {
-      margin-top: 0;
+      display: flex;
+      justify-content: center;
     }
 
     .div__txt {
@@ -104,11 +104,9 @@ export const FeatureSectionMotion = styled(motion.section)`
 export const DivImg = styled(motion.div)`
   display: flex;
   justify-content: center;
-  /* background-color: ${props => props.colorx || 'transparent'}; */
 
   @media screen and (min-width: 992px) {
     width: ${props => props.width || '40%'};
-    /* width: 40%; */
 
     &.column {
       flex-direction: column;
@@ -127,5 +125,3 @@ export const DivTxt = styled(motion.div)`
     padding-right: 2rem;
   }
 `;
-
-// export default FeatureSection;

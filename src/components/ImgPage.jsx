@@ -28,6 +28,8 @@ const ImgPage = () => {
       nextPhoto={nextPhotoURL}
       featureParagraph={featureParagraph}
       header={header}
+      link="/gallery"
+      backTo="gallery"
     />
   );
 };
