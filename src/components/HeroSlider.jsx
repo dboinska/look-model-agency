@@ -66,8 +66,6 @@ const HeroCarousel = () => {
 export default HeroCarousel;
 
 const Dots = styled.div`
-  /* margin: -1rem; */
-
   position: relative;
   bottom: 80px;
 

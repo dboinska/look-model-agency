@@ -29,7 +29,6 @@ const line = css`
 `;
 
 const StyledHeading = styled.div`
-  margin-bottom: 1rem;
   .headingSection {
     text-transform: uppercase;
     font-size: 1.6rem;

@@ -69,7 +69,6 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
         <LinksContainer ref={linksContainerRef}>
           {showLinks && <Orchestration isSmall={isSmall} links={links} />}
         </LinksContainer>
-
         <SocialIcons />
       </FloatMenu>
     </nav>

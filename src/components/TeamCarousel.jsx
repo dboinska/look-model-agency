@@ -5,6 +5,8 @@ import TeamMember from './TeamMember';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import { Link } from 'react-router-dom';
+
 const TeamContainer = styled(Slider)`
   margin: 0 auto 1rem auto;
   display: flex;
@@ -15,6 +17,7 @@ const TeamContainer = styled(Slider)`
 
   @media screen and (min-width: 992px) {
     width: 76%;
+    max-width: 1000px;
   }
 `;
 const SETTINGS = {
@@ -53,8 +56,6 @@ const SETTINGS = {
 };
 
 const Dots = styled.div`
-  /* margin: -1rem; */
-
   position: relative;
   bottom: 0;
 
@@ -66,7 +67,6 @@ const Dots = styled.div`
 const Pagination = styled.div`
   font-size: clamp(0.9rem, 2vw, 1.6rem);
   color: var(--gray);
-  /* margin: 1rem; */
 
   .slick-active & {
     color: var(--black);
@@ -77,13 +77,15 @@ const TeamCarousel = ({ team }) => {
   return (
     <div>
       <TeamContainer {...SETTINGS}>
-        {team.map(({ id, imgSmallSize, employee, name }) => (
-          <TeamMember
-            key={id}
-            imgSmallSize={imgSmallSize}
-            employee={employee}
-            name={name}
-          />
+        {team.map(({ id, imgSmallSize, category, title }) => (
+          <Link to={`/models/${id}`}>
+            <TeamMember
+              key={id}
+              imgSmallSize={imgSmallSize}
+              category={category}
+              title={title}
+            />
+          </Link>
         ))}
       </TeamContainer>
     </div>

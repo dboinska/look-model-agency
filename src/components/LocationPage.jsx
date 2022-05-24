@@ -32,8 +32,9 @@ const ContactPage = () => {
           variants={cardVariantsRight}
         >
           <Hero
+            width="80%"
             margin="0 auto"
-            imageUrl=""
+            padding="2rem"
             subHeading="get in touch &"
             heading="visit us"
             description="Visit us at Jackson Street 567, San Diego, California, United States"
@@ -50,7 +51,6 @@ const ContactPage = () => {
           <Heading heading="Our location">
             <H2>visit us</H2>
           </Heading>
-          {/* <MapWithPlaceholder /> */}
           <div id="map">
             <MapWithNoSSR />
           </div>

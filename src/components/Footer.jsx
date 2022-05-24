@@ -12,14 +12,13 @@ import ColumnSection from './ColumnSection';
 const Footer = ({ socialIcons: SocialIcons }) => {
   const news = blog.slice(0, 2);
   return (
-    <>
+    <FooterSection>
       <FeatureSectionMotion
         variant="dark"
         wrap="wrap"
         direction="row"
         margin="0"
         padding="0 4rem"
-        color="var(--dark-gray)"
         image="url(./photos/model2.png)"
       >
         <Container>
@@ -67,12 +66,10 @@ const Footer = ({ socialIcons: SocialIcons }) => {
             Don't forget to subscribe to receive the latest news from us! Fill
             out the form below.{' '}
           </Paragraph>
-          {/* <form action="" method="get" name="newsletter"> */}
           <FormNewsletter>
             <label form="email"> email:</label>
             <div>
               <input type="email" name="email" id="email"></input>
-
               <button type="submit">
                 <MdSend />
               </button>
@@ -91,9 +88,14 @@ const Footer = ({ socialIcons: SocialIcons }) => {
           {new Date().getFullYear()}, Look Model Agency
         </span>
       </ColumnSection>
-    </>
+    </FooterSection>
   );
 };
+
+const FooterSection = styled.div`
+  max-width: 100%;
+  background-color: var(--dark-gray);
+`;
 
 const ContactItem = styled.div`
   padding: 1rem 0;

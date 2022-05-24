@@ -54,9 +54,6 @@ const PortfolioPhotos = ({ photos, limit }) => {
 
       <PortfolioImg>
         <MyLinkLight to="/gallery">Load more works</MyLinkLight>
-        {/* <Button>
-          <MyLink to="/gallery">Load more works</MyLink>
-        </Button> */}
       </PortfolioImg>
     </PortfolioImages>
   );
