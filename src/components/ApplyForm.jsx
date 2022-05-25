@@ -236,9 +236,7 @@ export const FormValidationSchema = () => {
                 <FormGrid>
                   <Label htmlFor="eyeColor">eye color</Label>
                   <Field name="eyeColor" as="select">
-                    <option value={''}>
-                      {`select a product`.toUpperCase()}
-                    </option>
+                    <option value={''}>{`select`.toUpperCase()}</option>
                     {eyeOptions}
                   </Field>
 
@@ -345,11 +343,11 @@ export const FormValidationSchema = () => {
               <Heading heading="your photo" headingPosition="none"></Heading>
               <RequireContainer>
                 <FormGrid>
-                  <Label width="200px">Face photo</Label>
+                  <Label className="labelDragDrop">Face photo</Label>
                   <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
                 </FormGrid>
                 <FormGrid>
-                  <Label width="200px">silhouette photo</Label>
+                  <Label className="labelDragDrop">silhouette photo</Label>
                   <DragAndDrop fileTypes={['JPG', 'PNG', 'GIF']} maxSize={1} />
                 </FormGrid>
               </RequireContainer>

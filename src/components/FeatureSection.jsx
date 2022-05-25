@@ -35,6 +35,7 @@ export const FeatureSectionMotion = styled(motion.section)`
     props.variant === 'dark' ? 'var(--medium-gray)' : 'var(--black)'};
   background-color: ${props =>
     props.variant === 'dark' ? 'var(--dark-gray)' : 'transparent'};
+
   #map {
     height: 400px;
   }

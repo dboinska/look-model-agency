@@ -52,7 +52,6 @@ export const FormValidationSchema = () => {
         >
           {({ errors, touched, setFieldValue }) => (
             <Form>
-              {console.log(errors)}
               <Heading heading="your message" headingPosition="none"></Heading>
               <RequireContainer width="180px">
                 <FormGrid>

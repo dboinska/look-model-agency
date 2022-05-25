@@ -85,6 +85,7 @@ const SinglePage = ({
       <Layout>
         <Portfolio>
           <FeatureSectionMotion
+            padding="6rem 2rem 2rem 2rem"
             height="calc(100vh - 100px)"
             min_height="600px"
             whileInView="onscreen"

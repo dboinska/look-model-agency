@@ -5,11 +5,13 @@ const MyLink = styled(Link)`
   background-color: var(--black);
   text-transform: uppercase;
   font-weight: 500;
-  padding: 6px 12px;
+  margin-top: 24px;
+  padding: 12px;
   color: var(--white);
   font-size: 1rem;
   text-decoration: none;
   transition: var(--transition);
+  display: inline-block;
 
   &:hover {
     background-color: var(--second-color);
@@ -31,6 +33,7 @@ export const MyLinkLight = styled(Link)`
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   transition: all 0.3s ease;
   border: none;
+  padding: 1rem;
 
   &:before {
     content: '';

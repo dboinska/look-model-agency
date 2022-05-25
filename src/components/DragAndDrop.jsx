@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { VscNewFile } from 'react-icons/vsc';
 
 function DragDrop({ fileTypes, maxSize }) {
@@ -35,7 +35,7 @@ const DragAndDrop = styled.div`
   text-decoration: underline;
   transition: color 0.3s ease;
   margin: 1rem 0;
-  width: 180px;
+  width: 160px;
   @media screen and (min-width='1200px') {
     width: 220px;
     margin: 0;

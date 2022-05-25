@@ -18,7 +18,7 @@ const Footer = ({ socialIcons: SocialIcons }) => {
         wrap="wrap"
         direction="row"
         margin="0"
-        padding="0 4rem"
+        padding="0 2rem"
         image="url(./photos/model2.png)"
       >
         <Container>
@@ -67,7 +67,7 @@ const Footer = ({ socialIcons: SocialIcons }) => {
             out the form below.{' '}
           </Paragraph>
           <FormNewsletter>
-            <label form="email"> email:</label>
+            <label form="email"> Email:</label>
             <div>
               <input type="email" name="email" id="email"></input>
               <button type="submit">
@@ -98,7 +98,7 @@ const FooterSection = styled.div`
 `;
 
 const ContactItem = styled.div`
-  padding: 1rem 0;
+  padding: 0.4rem 0;
 
   svg {
     color: var(--white);

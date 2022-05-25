@@ -44,7 +44,7 @@ const HomePage = () => {
         <FeatureSectionMotion
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <DivTxt variants={cardVariantsLeft}>
             <Heading heading="History">
@@ -74,7 +74,7 @@ const HomePage = () => {
         <FeatureSectionMotion
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <DivTxt variants={cardVariantsRight} className="onBig--order2">
             <Heading heading="Casting">
@@ -105,7 +105,7 @@ const HomePage = () => {
           backgroundImage="url('../photos/FASHION2.png')"
         >
           <div>
-            <H2 variant="marginNone">
+            <H2 variant="marginNone" padding="2rem 0">
               We have best of models from the fashion industry
             </H2>
             <H3>who involved in the fashion week around the world</H3>
@@ -125,9 +125,11 @@ const FeatureParagraph = styled(Paragraph)`
 `;
 
 const Portfolio = styled.section`
-  margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: var(--light-gray);
 `;
 
 export default HomePage;

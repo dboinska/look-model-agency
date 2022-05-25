@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 const Paragraph = styled.p`
   text-transform: none;
   font-size: 1rem;
+  padding: 1rem;
 
   @media screen and (min-width: 1200px) {
     margin: 16px 0;

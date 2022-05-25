@@ -112,7 +112,7 @@ const FloatMenu = styled.div`
 const NavHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 64px;
   padding: 0 20px;
 
   .nav-toggle {
