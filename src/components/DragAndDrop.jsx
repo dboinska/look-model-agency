@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import styled from 'styled-components/macro';
 import { VscNewFile } from 'react-icons/vsc';
 
 function DragDrop({ fileTypes, maxSize }) {
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
   const handleChange = file => {
-    setFile(file);
+    // setFile(file);
+    console.log('file added');
   };
   function onClickChange(event) {
     event.target.classList.add('chooseImage');
