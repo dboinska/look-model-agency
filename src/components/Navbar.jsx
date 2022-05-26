@@ -51,8 +51,6 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
       linksContainerRef.current.style = {
         height: 0,
       };
-
-      // document.body.style.overflow = 'unset';
     }
 
     return () => {
