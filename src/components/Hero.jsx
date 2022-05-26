@@ -56,8 +56,8 @@ const HeroSection = styled.div`
     flex-direction: column;
     justify-content: space-around;
     padding-top: 60px;
-    height: calc(100vh - 50px);
-    /* height: 100vh; */
+    /* height: calc(100vh - 1px); */
+    height: 100vh;
     width: 100%;
     min-height: 744px;
     overflow: hidden;
@@ -172,7 +172,7 @@ const HeroPhoto = styled.figure`
     height: 100%;
     object-fit: cover;
     display: flex;
-    transform: translateY(16px);
+    transform: translateY(62px);
     @media screen and (min-width: 576px) {
       transform: translateY(60px);
     }

@@ -12,7 +12,7 @@ const TestimonialsPage = () => {
         subHeading="let's see"
         heading="testimonials"
         description="Quisque pulvinar pharetra erat nec rutrum. Donec malesuada nisi at molestie elementum. Duis vel interdum eros. Vestibulum nibh sem, ornare egestas ultricies vitae, laoreet id. "
-        link="\"
+        link="/home"
         linkLabel="back to main page"
       ></Hero>
       <TestimonialsSubpage />

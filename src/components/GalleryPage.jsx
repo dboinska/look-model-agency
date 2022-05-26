@@ -16,7 +16,7 @@ const GalleryPage = () => {
         subHeading="let's see"
         heading="Our gallery"
         description="Phasellus cursus lorem metus, sed mollis enim consequat sed. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget nibh. "
-        link="\"
+        link="/testimonials"
         linkLabel="read more"
       ></Hero>
       <Portfolio>

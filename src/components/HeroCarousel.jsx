@@ -36,7 +36,7 @@ const HeroCarousel = () => {
             volutpat dictum pretium. Mauris eu tincidunt felis. Duis facilisis
             urna ante, in dapibus ante dignissim id. Phasellus eu ligula
             maximus, fermentum risus quis, pellentesque neque."
-        link="\"
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
       <Hero
@@ -47,7 +47,7 @@ const HeroCarousel = () => {
         subHeading="Welcome to professional"
         heading="Model Agency"
         description="Nunc vel scelerisque turpis, lobortis ullamcorper quam. Maecenas interdum non leo non pellentesque. Quisque a quam dignissim nisi volutpat venenatis maximus eu velit. Morbi eget sollicitudin diam. Mauris mattis laoreet diam ac posuere."
-        link="\"
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
       <Hero
@@ -56,7 +56,7 @@ const HeroCarousel = () => {
         subHeading="Welcome to professional"
         heading="Model Agency"
         description="Nam tincidunt urna id porttitor posuere. Sed sodales ligula commodo dictum ultricies. Nam mattis erat sit amet odio ultrices dapibus. Mauris malesuada fermentum eleifend. Morbi eu sagittis elit, vitae aliquam orci. Vestibulum feugiat odio lacus, sed porta odio auctor in. "
-        link="\"
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
     </HeroContainer>

@@ -20,7 +20,6 @@ import Heading from './Heading';
 import { IoCloseOutline } from 'react-icons/io5';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 import { AnimatePresence, motion } from 'framer-motion';
-import GoToTop from './GoToTop';
 
 const SinglePage = ({
   id,
@@ -81,7 +80,6 @@ const SinglePage = ({
       exit={{ opacity: 0 }}
       transition={{ duration: 0.7 }}
     >
-      <GoToTop />
       <Layout>
         <Portfolio>
           <FeatureSectionMotion
