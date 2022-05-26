@@ -10,13 +10,22 @@ export const FormGrid = styled.div`
   grid-gap: 10px;
   grid-auto-rows: minmax(20px, auto);
 
+  & select {
+    font-size: 0.8rem;
+    text-align: right;
+  }
+
   @media screen and (min-width: 992px) {
     max-width: 380px;
   }
 `;
 
 const fontSize = css`
-  font-size: 1rem;
+  font-size: 0.725rem;
+
+  /* @media screen and (min-width: '992px') {
+    font-size: 1.2rem;
+  } */
 `;
 
 const formAnnouncement = css`
@@ -35,7 +44,7 @@ export const Label = styled.label`
   ${fontSize};
   text-transform: uppercase;
   color: var(--black);
-  width: ${props => props.width || '160px'};
+  width: ${props => props.width || '120px'};
 
   @media screen and (min-width: 564px) {
     width: 176px;
@@ -102,6 +111,13 @@ export const StyledForm = styled.div`
     border: none;
     border-bottom: 2px solid var(--second-color);
     text-align: right;
+    ${fontSize};
+    margin-bottom: 1rem;
+    width: 160px;
+    @media screen and (min-width: 768px) {
+      width: 180px;
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -109,7 +125,6 @@ export const RequireContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-
   @media screen and (min-width: 820px) {
     margin: 0 auto;
     display: flex;
@@ -121,7 +136,7 @@ export const RequireContainer = styled.div`
     border-bottom: 2px solid var(--second-color);
     text-align: right;
     padding-right: 1rem;
-    width: 170px;
+    width: 160px;
     ${fontSize};
 
     &[type='checkbox'] {
@@ -130,6 +145,7 @@ export const RequireContainer = styled.div`
     }
     @media screen and (min-width: 768px) {
       width: 230px;
+      font-size: 1rem;
     }
 
     @media screen and (min-width: 992px) {

@@ -35,9 +35,8 @@ const HeroCarousel = () => {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             volutpat dictum pretium. Mauris eu tincidunt felis. Duis facilisis
             urna ante, in dapibus ante dignissim id. Phasellus eu ligula
-            maximus, fermentum risus quis, pellentesque neque. Pellentesque
-            hendrerit molestie eros vitae vehicula."
-        link="\"
+            maximus, fermentum risus quis, pellentesque neque."
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
       <Hero
@@ -47,8 +46,8 @@ const HeroCarousel = () => {
         imageUrl={modelHero2}
         subHeading="Welcome to professional"
         heading="Model Agency"
-        description="Nunc vel scelerisque turpis, lobortis ullamcorper quam. Maecenas interdum non leo non pellentesque. Quisque a quam dignissim nisi volutpat venenatis maximus eu velit. Morbi eget sollicitudin diam. Mauris mattis laoreet diam ac posuere. Curabitur maximus nulla nec libero tincidunt, at tincidunt orci lobortis."
-        link="\"
+        description="Nunc vel scelerisque turpis, lobortis ullamcorper quam. Maecenas interdum non leo non pellentesque. Quisque a quam dignissim nisi volutpat venenatis maximus eu velit. Morbi eget sollicitudin diam. Mauris mattis laoreet diam ac posuere."
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
       <Hero
@@ -56,8 +55,8 @@ const HeroCarousel = () => {
         imageUrl={model}
         subHeading="Welcome to professional"
         heading="Model Agency"
-        description="Nam tincidunt urna id porttitor posuere. Sed sodales ligula commodo dictum ultricies. Nam mattis erat sit amet odio ultrices dapibus. Mauris malesuada fermentum eleifend. Morbi eu sagittis elit, vitae aliquam orci. Vestibulum feugiat odio lacus, sed porta odio auctor in. Nam vulputate ipsum dignissim erat ultricies, a vestibulum arcu consequat. "
-        link="\"
+        description="Nam tincidunt urna id porttitor posuere. Sed sodales ligula commodo dictum ultricies. Nam mattis erat sit amet odio ultrices dapibus. Mauris malesuada fermentum eleifend. Morbi eu sagittis elit, vitae aliquam orci. Vestibulum feugiat odio lacus, sed porta odio auctor in. "
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
     </HeroContainer>

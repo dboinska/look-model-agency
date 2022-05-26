@@ -38,6 +38,9 @@ const Quote = ({ quotes }) => {
 };
 
 const StyledQuote = styled.figure`
+  width: 100%;
+  padding: 0;
+  margin: 0;
   figcaption {
     padding: 2rem 0;
     span {

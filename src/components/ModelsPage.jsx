@@ -12,7 +12,7 @@ const ModelsPage = () => {
         subHeading="let's meet"
         heading="our models"
         description="Morbi aliquam imperdiet mauris, ut ultrices risus pellentesque non. Nam. Quisque pulvinar pharetra erat nec rutrum. Donec malesuada nisi at molestie elementum. Duis vel interdum eros. Vestibulum nibh sem, ornare egestas ultricies vitae, laoreet id. "
-        link="\"
+        link="/testimonials"
         linkLabel="read more"
       ></Hero>
       <ModelsTeam />

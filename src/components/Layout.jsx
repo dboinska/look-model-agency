@@ -2,10 +2,12 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import SocialIcons from './SocialIcons';
 import { motion } from 'framer-motion';
+import GoToTop from './GoToTop';
 
 const Layout = ({ footerHidden = false, children }) => {
   return (
     <>
+      <GoToTop />
       <motion.div
         key="layout"
         initial={{ opacity: 0 }}

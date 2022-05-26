@@ -11,7 +11,7 @@ const TestimonialsSubpage = () => {
   return (
     <ColumnSection
       backgroundColor="var(--main-color)"
-      padding="6rem 2rem 5rem 2rem"
+      padding="6rem 2rem 2rem 2rem"
     >
       <div className="div__center">
         <VscQuoteStyled />

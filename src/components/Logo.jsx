@@ -13,7 +13,8 @@ const Logo = ({ variant }) => (
 const LogoStyled = styled.div`
   align-items: center;
   display: flex;
-  z-index: 999;
+  height: 56px;
+  display: inline-block;
 
   a {
     text-decoration: none;

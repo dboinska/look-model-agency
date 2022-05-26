@@ -25,7 +25,7 @@ const ApplyPage = () => {
         subHeading="get to know us &"
         heading="APPLY NOW"
         description="If you would like to model with our agency, please fill out the form to contact us. Send us recent photos taken with a cell phone on a neutral background, without makeup or filters. Our agency will contact you."
-        link="\"
+        link="/testimonials"
         linkLabel="Read More"
       ></Hero>
       <FeatureSectionMotion

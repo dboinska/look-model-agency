@@ -33,6 +33,7 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
 
     if (showLinks) {
       linksContainerRef.current.style.height = '100vh';
+      document.body.style.overflow = 'hidden';
 
       linksContainerRef.current.style.background = 'var(--main-color)';
       linksContainerRef.current.style.position = 'absolute';
@@ -40,13 +41,18 @@ const Navbar = ({ socialIcons: SocialIcons }) => {
       linksContainerRef.current.style.width = '100%';
     } else {
       linksContainerRef.current.style.height = '0px';
+      document.body.style.overflow = 'unset';
     }
 
     if (windowSize > 1199) {
       setShowLinks(true);
+
+      document.body.style.overflow = 'unset';
       linksContainerRef.current.style = {
         height: 0,
       };
+
+      // document.body.style.overflow = 'unset';
     }
 
     return () => {
@@ -101,7 +107,7 @@ const FloatMenu = styled.div`
     height: 80%;
     display: flex;
     align-items: center;
-    z-index: 999;
+    /* z-index: 999; */
 
     @media screen and (min-width: 1200px) {
       display: none;
@@ -112,8 +118,12 @@ const FloatMenu = styled.div`
 const NavHeader = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 64px;
   padding: 0 20px;
+  position: relative;
+  z-index: 999;
+  align-items: center;
+  max-width: 100vw;
 
   .nav-toggle {
     font-size: 1.5rem;
@@ -142,6 +152,7 @@ const LinksContainer = styled.div`
   height: 0;
   overflow: hidden;
   transition: var(--transition);
+  overflow: auto;
 
   .links {
     text-transform: uppercase;

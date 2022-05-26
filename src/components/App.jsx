@@ -35,7 +35,7 @@ function App() {
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/appointment" element={<ApplyPage />} />
           <Route path="gallery/:id" element={<ImgPage />} />
-          <Route path="contact/:location" element={<LocationPage />} />
+          <Route path="/location" element={<LocationPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </AnimatePresence>

@@ -10,19 +10,21 @@ import Heading from './Heading';
 import { H2 } from './Headers';
 import Layout from './Layout';
 
+import heroPhoto from '../photos/email.png';
+
 import dynamic from 'next/dynamic';
 
 const MapWithNoSSR = dynamic(() => import('./Map'), {
   ssr: false,
 });
 
-const ContactPage = () => {
+const LocationPage = () => {
   return (
     <Layout>
       <FeatureSectionMotion
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
         padding="0"
       >
         <DivImg
@@ -32,9 +34,12 @@ const ContactPage = () => {
           variants={cardVariantsRight}
         >
           <Hero
-            width="80%"
             margin="0 auto"
-            padding="2rem"
+            flexDirection="column"
+            padding="0"
+            width="80%"
+            className="heroImgSmallEmail"
+            imageUrl={heroPhoto}
             subHeading="get in touch &"
             heading="visit us"
             description="Visit us at Jackson Street 567, San Diego, California, United States"
@@ -60,4 +65,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default LocationPage;

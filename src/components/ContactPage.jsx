@@ -8,6 +8,8 @@ import {
 } from './FeatureSection';
 import Layout from './Layout';
 
+import heroPhoto from '../photos/map.png';
+
 import { FormValidationSchema } from './ContactForm';
 
 const ContactPage = () => {
@@ -17,22 +19,25 @@ const ContactPage = () => {
         padding="0"
         initial="offscreen"
         whileInView="onscreen"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <DivImg
           colorx="var(--light-gray)"
           // width="80%"
+
           variants={cardVariantsLeft}
         >
           <Hero
             margin="0 auto"
-            padding="2rem"
+            flexDirection="column"
+            padding="0"
             width="80%"
-            imageUrl=""
+            className="heroImgSmall"
+            imageUrl={heroPhoto}
             subHeading="get in touch &"
             heading="contact us"
             description="If you can't find the information or you want to ask a question, write to us or visit us at our headquarters"
-            link="/contact/location"
+            link="/location"
             linkLabel="see locations"
             backgroundColor="var(--light-gray)"
           ></Hero>

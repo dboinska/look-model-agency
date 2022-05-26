@@ -9,6 +9,7 @@ export const H2 = styled.h2`
   ${commonStyle}
   color: var(--black);
   font-size: 2rem;
+  padding: ${props => props.padding || '0'};
   margin: ${props => (props.variant === 'marginNone' ? '0' : '0.5rem 0 0 0')};
 
   @media screen and (min-width: 1200px) {

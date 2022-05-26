@@ -37,15 +37,18 @@ const StyledModal = styled(motion.div)`
   }
 
   img {
-    height: calc(100vh - 40px);
     transform: translateX(0);
     object-fit: cover;
     padding: 0.25rem;
     border: 2px solid var(--light-gray);
-    max-width: 90vw;
+    max-width: 72%;
+    /* height: calc(100vh - 40px); */
 
-    @media screen and(min-width:992px) {
-      min-height: 600px;
+    @media screen and (min-width: 768px) {
+      height: calc(100vh - 40px);
+      /* min-height: 600px; */
+      /* max-width: auto; */
+      max-width: 100%;
     }
   }
 
@@ -61,8 +64,13 @@ const StyledModal = styled(motion.div)`
 
       z-index: 999;
       font-size: 2rem;
-      top: 1rem;
-      right: 3.6rem;
+      top: 0.4rem;
+      right: 4rem;
+
+      @media screen and (min-width: '1200px') {
+        top: 1rem;
+        right: 3.6rem;
+      }
 
       path {
         filter: drop-shadow(10px 30px 10px rgba(0, 0, 0, 0.4));
