@@ -9,14 +9,9 @@ import {
 import Heading from './Heading';
 import { H2 } from './Headers';
 import Layout from './Layout';
+import Map from './Map';
 
 import heroPhoto from '../photos/email.png';
-
-import dynamic from 'next/dynamic';
-
-const MapWithNoSSR = dynamic(() => import('./Map'), {
-  ssr: false,
-});
 
 const LocationPage = () => {
   return (
@@ -57,7 +52,7 @@ const LocationPage = () => {
             <H2>visit us</H2>
           </Heading>
           <div id="map">
-            <MapWithNoSSR />
+            <Map />
           </div>
         </DivTxt>
       </FeatureSectionMotion>
