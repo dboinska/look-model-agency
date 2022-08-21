@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+<img src="./src/photos/logo2.png" alt="logo" width="120" />
+# Look Agency - a modern website for a model agency
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Responsive and animated page of a model agency. It contains photo gallery, about models paage, an application form with validation, a location map.
 
-## Available Scripts
+The inspiration to create the website was a template from themeforest.net, which I found while browsing Pinterest.
 
-In the project directory, you can run:
+## ✨ Overview
 
-### `npm start`
+### 📷 Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Home Page](./public/photos/screenshots/lookHome.png)
+![Gallery Page](./public/photos/screenshots/lookGallery.png)
+![Models Page](./public/photos/screenshots/lookModels.png)
+![Model Page](./public/photos/screenshots/lookModel.png)
+![Apply Page](./public/photos/screenshots/lookApply.png)
+![Contact Page](./public/photos/screenshots/lookContact.png)
+![Map Page](./public/photos/screenshots/lookMap.png)
+![404 Page](./public/photos/screenshots/look404.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🎯 Features
 
-### `npm test`
+- Form validation in yup
+- Form data stored in local storage
+- Animations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 💎 Pages
 
-### `npm run build`
+- Home page
+- Gallery page
+- Models page
+- Model page
+- Appointment page
+- Contact page
+- Location page
+- 404 page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔎 Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Visit the website at https://look-model-agency.netlify.app
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🚀 Tech stack
 
-### `npm run eject`
+- React 18
+- Styled Components
+- Framer Motion
+- Leaflet
+- Formik
+- Yup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏃‍♀️ Run locally
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clone the project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`git clone https://github.com/dboinska/look-model-agency`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Go to the project directory
 
-## Learn More
+`cd look-model-agency`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Install dependencies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`npm install`
 
-### Code Splitting
+### Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`npm start`
