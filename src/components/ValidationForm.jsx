@@ -69,7 +69,7 @@ export const SignUpSchema = Yup.object().shape({
 
   birthDate: Yup.date()
     .max(new Date(), 'Future date')
-    .test('check-is-adult', 'You are too young!', isAdult)
+    .test('check-is-adult', 'Too young!', isAdult)
     .required('Required'),
 
   hairColor: Yup.string().required('Required'),
